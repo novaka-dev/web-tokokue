@@ -16,16 +16,25 @@
     include 'components/header/header.php';
   ?>
 
+<div class="content">
+  <div class="container">
+  <?php
+    require_once 'components/product-card/product-card.php';
+    require_once 'data/products.php';
+
+    render_product_grid($products);
+  ?>
+</div>
+
+</div>
+
+  <div class="container">
   <?php
     include 'components/aboutus/aboutus.php';
   ?>
+  </div>
 
-  <?php
-    require_once 'components/product-card/product-card.php';  // komponen
-    require_once 'data/products.php';            // data dummy
 
-    render_product_grid($products);
-    ?>
 
 </body>
 </html>

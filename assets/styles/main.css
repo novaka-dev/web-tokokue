@@ -1,5 +1,14 @@
+@import "preflight.css";
+/* ========================
+   assets/css/global.css
+   Base styles — Ann's Bakery
+   ======================== */
+
+/* Import semua komponen CSS di sini */
+@import url("../../components/product-card/product-card.css");
 @import url("../../components/header/header.css");
 @import url("../../components/aboutus/aboutus.css");
+
 *,
 *::before,
 *::after {
@@ -20,9 +29,39 @@ body {
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
 }
+
 /* Centered page container */
 .container {
   max-width: 1180px;
   margin: 0 auto;
   padding: 0 24px 64px;
+}
+
+.content {
+  min-height: 100vh;
+  padding: 80px 0;
+}
+
+/* Page header */
+.page-header {
+  text-align: center;
+  padding: 56px 0 8px;
+}
+
+.page-header__label {
+  font-family: "DM Sans", sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #b5832a;
+  margin-bottom: 10px;
+}
+
+.page-header__title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 600;
+  color: #1a1a1a;
+  letter-spacing: 0.01em;
 }

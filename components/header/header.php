@@ -31,12 +31,5 @@
 
   </header>
 
-  <!-- CONTENT -->
-  <section class="content">
-
-    <h1>Our Cakes</h1>
-
-  </section>
-
 </body>
 </html>

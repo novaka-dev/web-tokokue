@@ -27,26 +27,26 @@ $products = [
         'image' => 'assets/images/products/4.webp',
         'badge' => 'New',
     ],
-    // [
-    //     'name'  => 'Tiramisu Cake',
-    //     'price' => 520000,
-    //     'image' => 'assets/images/products/5.png',
-    // ],
-    // [
-    //     'name'  => 'Matcha Red Bean',
-    //     'price' => 475000,
-    //     'image' => 'assets/images/matcha-red-bean.jpg',
-    //     'badge' => 'New',
-    // ],
-    // [
-    //     'name'  => 'Classic Black Forest',
-    //     'price' => 450000,
-    //     'image' => 'assets/images/black-forest.jpg',
-    // ],
-    // [
-    //     'name'  => 'Mango Cheesecake',
-    //     'price' => 510000,
-    //     'image' => 'assets/images/mango-cheesecake.jpg',
-    //     'badge' => 'Seasonal',
-    // ],
+    [
+        'name'  => 'Tiramisu Cake',
+        'price' => 520000,
+        'image' => 'assets/images/products/5.png',
+    ],
+    [
+        'name'  => 'Matcha Red Bean',
+        'price' => 475000,
+        'image' => 'assets/images/matcha-red-bean.jpg',
+        'badge' => 'New',
+    ],
+    [
+        'name'  => 'Classic Black Forest',
+        'price' => 450000,
+        'image' => 'assets/images/black-forest.jpg',
+    ],
+    [
+        'name'  => 'Mango Cheesecake',
+        'price' => 510000,
+        'image' => 'assets/images/mango-cheesecake.jpg',
+        'badge' => 'Seasonal',
+    ],
 ];

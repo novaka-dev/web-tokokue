@@ -7,8 +7,7 @@
    ROOT
 ========================= */
 
-:root{
-
+:root {
   /* =========================
      TEXT
   ========================= */
@@ -37,24 +36,23 @@
   ========================= */
 
   --transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-
 }
 
 /* =========================
    RESET
 ========================= */
 
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-html{
+html {
   scroll-behavior: smooth;
 }
 
-body{
+body {
   overflow-x: hidden;
 
   color: var(--text-primary);
@@ -64,17 +62,13 @@ body{
    HEADER
 ========================= */
 
-header{
-
+header {
   width: 100%;
   height: 100vh;
 
   background-image:
-  linear-gradient(
-    rgba(0,0,0,0.20),
-    rgba(0,0,0,0.20)
-  ),
-  url('../../assets/img/tokokue.jpeg');
+    linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    url("../../assets/img/tokokue.jpeg");
 
   background-size: cover;
   background-position: center;
@@ -90,8 +84,7 @@ header{
    HERO
 ========================= */
 
-.hero{
-
+.hero {
   position: absolute;
 
   top: 50%;
@@ -108,9 +101,8 @@ header{
    HERO TITLE
 ========================= */
 
-.hero h1{
-
-  font-family: 'Cormorant Garamond', serif;
+.hero h1 {
+  font-family: "Cormorant Garamond", serif;
 
   font-size: 82px;
   font-weight: 600;
@@ -126,8 +118,7 @@ header{
   transition: var(--transition);
 }
 
-.hero:hover h1{
-
+.hero:hover h1 {
   letter-spacing: 1px;
 }
 
@@ -135,9 +126,8 @@ header{
    HERO SUBTITLE
 ========================= */
 
-.hero h2{
-
-  font-family: 'Cormorant Garamond', serif;
+.hero h2 {
+  font-family: "Cormorant Garamond", serif;
 
   font-size: 34px;
   font-weight: 400;
@@ -151,9 +141,8 @@ header{
    HERO TEXT
 ========================= */
 
-.hero p{
-
-  font-family: 'DM Sans', sans-serif;
+.hero p {
+  font-family: "DM Sans", sans-serif;
 
   font-size: 18px;
   font-weight: 300;
@@ -171,8 +160,7 @@ header{
    HERO BUTTON
 ========================= */
 
-.hero a{
-
+.hero a {
   display: inline-block;
 
   text-decoration: none;
@@ -181,7 +169,7 @@ header{
 
   color: var(--text-light);
 
-  font-family: 'DM Sans', sans-serif;
+  font-family: "DM Sans", sans-serif;
 
   font-size: 17px;
   font-weight: 500;
@@ -195,8 +183,7 @@ header{
   box-shadow: var(--shadow-soft);
 }
 
-.hero a:hover{
-
+.hero a:hover {
   background-color: var(--accent-hover);
 
   transform: translateY(-4px);
@@ -208,18 +195,17 @@ header{
    ABOUT
 ========================= */
 
-.about{
-
+.about {
   width: 100%;
   min-height: 100vh;
 
   display: flex;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
 
   gap: 70px;
 
-  padding: 100px 120px;
+  /* padding: 100px 120px; */
 
   animation: fadeUp 1.2s ease;
 }
@@ -228,15 +214,13 @@ header{
    ABOUT IMAGE
 ========================= */
 
-.about-image{
-
-  width: 60%;
+.about-image {
+  width: 50%;
 
   overflow: hidden;
 }
 
-.about-image img{
-
+.about-image img {
   width: 100%;
   height: 600px;
 
@@ -247,8 +231,7 @@ header{
   transition: var(--transition);
 }
 
-.about-image img:hover{
-
+.about-image img:hover {
   transform: scale(1.05);
 }
 
@@ -256,8 +239,7 @@ header{
    ABOUT TEXT
 ========================= */
 
-.about-text{
-
+.about-text {
   width: 40%;
 
   animation: fadeText 1.5s ease;
@@ -267,9 +249,8 @@ header{
    ABOUT TITLE
 ========================= */
 
-.about-text h1{
-
-  font-family: 'Cormorant Garamond', serif;
+.about-text h1 {
+  font-family: "Cormorant Garamond", serif;
 
   font-size: 70px;
   font-weight: 600;
@@ -281,8 +262,7 @@ header{
   transition: var(--transition);
 }
 
-.about-text:hover h1{
-
+.about-text:hover h1 {
   letter-spacing: 1px;
 }
 
@@ -290,8 +270,7 @@ header{
    LINE
 ========================= */
 
-.line{
-
+.line {
   width: 120px;
   height: 2px;
 
@@ -302,8 +281,7 @@ header{
   transition: var(--transition);
 }
 
-.about-text:hover .line{
-
+.about-text:hover .line {
   width: 170px;
 }
 
@@ -311,9 +289,8 @@ header{
    ABOUT PARAGRAPH
 ========================= */
 
-.about-text p{
-
-  font-family: 'DM Sans', sans-serif;
+.about-text p {
+  font-family: "DM Sans", sans-serif;
 
   font-size: 16px;
 
@@ -326,8 +303,7 @@ header{
   transition: var(--transition);
 }
 
-.about-text:hover p{
-
+.about-text:hover p {
   opacity: 1;
 }
 
@@ -335,30 +311,26 @@ header{
    ANIMATION
 ========================= */
 
-@keyframes fadeUp{
-
-  from{
+/* @keyframes fadeUp {
+  from {
     opacity: 0;
     transform: translateY(50px);
   }
 
-  to{
+  to {
     opacity: 1;
     transform: translateY(0);
   }
-
 }
 
-@keyframes fadeText{
-
-  from{
+@keyframes fadeText {
+  from {
     opacity: 0;
     transform: translateY(30px);
   }
 
-  to{
+  to {
     opacity: 1;
     transform: translateY(0);
   }
-
-}
+} */
