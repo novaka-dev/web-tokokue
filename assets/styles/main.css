@@ -1,16 +1,28 @@
-@import "preflight.css";
-@import "../components/styles/accordion.css";
-@import "../components/styles/avatar.css";
-@import "../components/styles/button.css";
-@import "../components/styles/alert.css";
-@import "../components/styles/badge.css";
-@import "../components/styles/blockquote.css";
-@import "../components/styles/button.group.css";
-@import "../components/styles/card.css";
-@import "../components/styles/chat.css";
-@import "../components/styles/carrousel.css";
-@import "../components/styles/datepicker.css";
-@import "../components/styles/navbar.css";
-body{
-  font-family: "inter";
+@import url("../../components/header/header.css");
+@import url("../../components/aboutus/aboutus.css");
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: #faf8f5;
+  color: #1a1a1a;
+  font-family: "DM Sans", sans-serif;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+/* Centered page container */
+.container {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 24px 64px;
 }
