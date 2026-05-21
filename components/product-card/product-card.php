@@ -51,8 +51,8 @@ function render_product_card(array $product): void {
           <?php endif; ?>
       </div>
 
-      <div class="product-card__body">
-          <h3 class="product-card__name"><?= $name ?></h3>
+    <div class="product-card__body">
+        <h3 class="product-card__name"><?= $name ?></h3>
           <?php if ($price): ?>
               <p class="product-card__price"><?= $price ?></p>
           <?php endif; ?>
