@@ -1,16 +1,68 @@
 @import "preflight.css";
-@import "../components/styles/accordion.css";
-@import "../components/styles/avatar.css";
-@import "../components/styles/button.css";
-@import "../components/styles/alert.css";
-@import "../components/styles/badge.css";
-@import "../components/styles/blockquote.css";
-@import "../components/styles/button.group.css";
-@import "../components/styles/card.css";
-@import "../components/styles/chat.css";
-@import "../components/styles/carrousel.css";
-@import "../components/styles/datepicker.css";
-@import "../components/styles/navbar.css";
-body{
-  font-family: "inter";
+/* ========================
+   assets/css/global.css
+   Base styles — Ann's Bakery
+   ======================== */
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@300;400;500&display=swap");
+/* Import semua komponen CSS di sini */
+@import url("../../components/product-card/product-card.css");
+@import url("../../components/header/header.css");
+@import url("../../components/aboutus/aboutus.css");
+@import url("../../page/product-detail/product-detail.css");
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: #faf8f5;
+  color: #1a1a1a;
+  font-family: "DM Sans", sans-serif;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Centered page container */
+.container {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 64px 24px 64px;
+}
+
+.content {
+  min-height: 100vh;
+  padding: 80px 0;
+}
+
+/* Page header */
+.page-header {
+  text-align: center;
+  padding: 56px 0 8px;
+}
+
+.page-header__label {
+  font-family: "DM Sans", sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #b5832a;
+  margin-bottom: 10px;
+}
+
+.page-header__title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 600;
+  color: #1a1a1a;
+  letter-spacing: 0.01em;
 }
