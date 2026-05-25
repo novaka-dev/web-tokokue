@@ -38,7 +38,7 @@ function render_product_card(array $product): void {
     $alt    = $name;
 ?>
 
-  <article class="product-card">
+  <article class="product-card" onclick="window.location='page/product-detail/product-detail.php?id=<?= (int)($product['id'] ?? 0) ?>'" style="cursor:pointer">
       <div class="product-card__image-wrap">
           <?php if ($image): ?>
               <img src="<?= $image ?>" alt="<?= $alt ?>" loading="lazy">

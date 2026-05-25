@@ -17,7 +17,7 @@
 
     <!-- IMAGE -->
     <div class="about-image">
-      <img src="assets/img/tokokue.jpeg" alt="">      
+      <img src="assets/img/tokokue.jpeg" alt="">
     </div>
 
     <!-- TEXT -->
