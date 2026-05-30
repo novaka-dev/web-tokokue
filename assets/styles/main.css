@@ -1,7 +1,7 @@
 @import "preflight.css";
 /* ========================
-   assets/css/global.css
-   Base styles — Ann's Bakery
+  assets/css/global.css
+  Base styles — Ann's Bakery
    ======================== */
 @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@300;400;500&display=swap");
 /* Import semua komponen CSS di sini */
@@ -9,6 +9,9 @@
 @import url("../../components/header/header.css");
 @import url("../../components/aboutus/aboutus.css");
 @import url("../../page/product-detail/product-detail.css");
+@import url("../../components/cart/cart.css");
+@import url("../../page/checkout/checkout.css");
+@import url("../../page/cart/cart.css");
 
 *,
 *::before,

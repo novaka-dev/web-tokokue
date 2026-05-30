@@ -1,0 +1,221 @@
+/* ================================
+   page/checkout/checkout.css
+   Halaman Checkout
+   ================================ */
+
+.checkout-page {
+  padding-top: 32px;
+}
+
+.checkout-page__title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 36px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 36px;
+}
+
+/* Layout dua kolom */
+.checkout-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+  padding-bottom: 80px;
+}
+
+/* ── Struk ── */
+.checkout-struk {
+  background: #fff;
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
+}
+
+.checkout-struk__title,
+.checkout-form__title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 24px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #f0ece6;
+}
+
+.checkout-struk__list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.checkout-struk__item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.checkout-struk__img {
+  width: 64px;
+  height: 64px;
+  object-fit: cover;
+  border-radius: 10px;
+  background: #f4f2ee;
+  flex-shrink: 0;
+}
+
+.checkout-struk__detail {
+  flex: 1;
+}
+
+.checkout-struk__name {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.checkout-struk__wording {
+  font-family: "DM Sans", sans-serif;
+  font-size: 12px;
+  color: #b5832a;
+  font-style: italic;
+}
+
+.checkout-struk__qty {
+  font-family: "DM Sans", sans-serif;
+  font-size: 13px;
+  color: #999;
+  margin-top: 2px;
+}
+
+.checkout-struk__subtotal {
+  font-family: "DM Sans", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #1a1a1a;
+  white-space: nowrap;
+}
+
+.checkout-struk__divider {
+  height: 1px;
+  background: #f0ece6;
+  margin: 20px 0;
+}
+
+.checkout-struk__total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "DM Sans", sans-serif;
+  font-size: 15px;
+  color: #555;
+}
+
+.checkout-struk__total strong {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 24px;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.checkout-struk__note {
+  font-family: "DM Sans", sans-serif;
+  font-size: 12px;
+  color: #bbb;
+  margin-top: 16px;
+  text-align: center;
+}
+
+/* ── Form ── */
+.checkout-form-wrap {
+  background: #fff;
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
+}
+
+.checkout-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.checkout-form__field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.checkout-form__field label {
+  font-family: "DM Sans", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: #555;
+  letter-spacing: 0.02em;
+}
+
+.checkout-form__field label span {
+  color: #b5832a;
+}
+
+.checkout-form__field input,
+.checkout-form__field textarea {
+  padding: 12px 16px;
+  border: 1px solid #e0dbd4;
+  border-radius: 10px;
+  font-family: "DM Sans", sans-serif;
+  font-size: 14px;
+  color: #1a1a1a;
+  background: #faf8f5;
+  outline: none;
+  resize: vertical;
+  transition:
+    border-color 0.2s,
+    background 0.2s;
+}
+
+.checkout-form__field input:focus,
+.checkout-form__field textarea:focus {
+  border-color: #b5832a;
+  background: #fff;
+}
+
+.checkout-form__submit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: #25d366;
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  padding: 16px;
+  font-family: "DM Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 8px;
+  transition:
+    opacity 0.2s,
+    transform 0.15s;
+}
+
+.checkout-form__submit:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .checkout-layout {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .checkout-struk,
+  .checkout-form-wrap {
+    padding: 24px 20px;
+  }
+}
