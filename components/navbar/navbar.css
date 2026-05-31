@@ -1,1 +1,75 @@
- 
+@import "../../assets/styles/preflight.css";
+nav{
+	width: 100vw;
+	height: 5.5rem;
+	/*background-color: darkcyan;*/
+	position: sticky;
+	top: 0;
+	padding: 0 12.25rem;
+	margin: auto;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.burger {
+  display: inline-block;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.bar1, .bar2, .bar3, .bar4, .bar5 {
+  width: 25px;
+  height: 2px;
+  background-color: #AB9164;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+.bar4 {
+  transform: translate(0, 11px) rotate(-45deg);
+}
+
+.change .bar2 {opacity: 0;}
+
+.bar5 {
+  transform: translate(0, -11px) rotate(45deg);
+}
+.brand-logo{
+	height: 50px;
+	display: block;
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+}
+.sign{
+	display: block;
+	padding: 0.5rem 1.4rem;
+	color: #AB9164;
+	font-weight: var(--font-weight-normal);
+	border-radius: var(--radius-full);
+	background-color: transparent;
+}
+.sign:hover{
+	background-color: var(--color-gray-200);
+}
+.menu-right{
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+}
+.search-button{
+	padding: 0.5rem;
+	background-color: transparent;
+	cursor: pointer;
+}
+.navbar-sidebar{
+	width: 19.75rem;
+	height: 100vw;
+	background-color: var(--color-white);
+	position: relative;
+}
+.navbar-dialog{
+	width: 100vw;
+	background-color: rgba(0, 0, 0, 0.2);
+	height: 100vw;
+}
