@@ -12,7 +12,7 @@
 		</aside>
 	</div>
 	
-	<img class="brand-logo" src="../../assets/image/anns.png" alt="anns">
+	<img class="brand-logo" src="../../assets/images/anns.png" alt="anns">
 	<div class="menu-right">
 		<a class="sign" href="#">Sign in</a>
 		<button type="button" class="search-button">	
