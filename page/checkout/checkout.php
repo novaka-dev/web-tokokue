@@ -10,6 +10,7 @@
 
 <?php
 if (session_status() === PHP_SESSION_NONE) session_start();
+include '../../components/navbar/navbar.php';  // ← tambah ini
 
 require_once '../../components/cart/cart.php';
 require_once '../../config.php';

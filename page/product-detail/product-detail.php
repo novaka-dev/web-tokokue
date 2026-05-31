@@ -9,6 +9,7 @@
 <body>
 
 <?php
+include '../../components/navbar/navbar.php';  // ← tambah ini
 require_once '../../data/products.php';
 
 // Ambil ID produk dari URL: product-detail.php?id=1
@@ -46,7 +47,7 @@ $storage_care  = nl2br(htmlspecialchars($product['storage_care'] ?? ''));
 $main_image    = htmlspecialchars($images[0]);
 ?>
 
-<main class="container">
+<main class="container detail-page">
 
     <!-- Breadcrumb -->
     <nav class="breadcrumb">
