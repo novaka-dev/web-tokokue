@@ -20,52 +20,6 @@
                     <li><a href="/web-tokokue/page/cart/cart.php" class="sidebar-nav__link">Keranjang</a></li>
                 </ul>
             </nav>
-<!-- ======= -->
-			<!-- <div class="sidebarlink">
-				<a href="#" class="sidebarlink-item">
-					Home
-				</a>
-				<div class="sidebarlink-item sidebar-drop">
-					<div class="sidebarlink-item-head shop-container">
-						Shop
-						<svg xmlns="http://www.w3.org/2000/svg" width="0.7em" height="0.7em" viewBox="0 0 40 40">
-							<path d="M0 0h40v40H0z" fill="none" />
-							<path fill="currentColor" d="M4.659 11.833h30.682L20 32.167z" />
-						</svg>
-					</div>
-					<input class="toggle-sublink" type="checkbox" name="checkbox" id="checkbox">
-					<div class="sidebarlink-sublink">
-						<a href="#" class="sublink">New Creations</a>
-						<a href="#" class="sublink">Classic Creations</a>
-						<a href="#" class="sublink">Signature Creations</a>
-						<a href="#" class="sublink">Elevated Signature</a>
-						<a href="#" class="sublink">Super Creations</a>
-						<a href="#" class="sublink">Cookies Creations</a>
-						<a href="#" class="sublink">Pastry Creations</a>
-					</div>
-				</div>
-
-				<div class="sidebarlink-item sidebar-drop">
-					<div class="sidebarlink-item-head shop-container">
-						About
-						<svg xmlns="http://www.w3.org/2000/svg" width="0.7em" height="0.7em" viewBox="0 0 40 40">
-							<path d="M0 0h40v40H0z" fill="none" />
-							<path fill="currentColor" d="M4.659 11.833h30.682L20 32.167z" />
-						</svg>
-					</div>
-					<input class="toggle-sublink" type="checkbox" name="checkbox" id="checkbox">
-					<div class="sidebarlink-sublink">
-						<a href="#" class="sublink">Membership</a>
-						<a href="#" class="sublink">Terms & Conditions</a>
-						<a href="#" class="sublink">Ann's Career</a>
-						<a href="#" class="sublink">About us</a>
-						<a href="#" class="sublink">Our Stores</a>
-						<a href="#" class="sublink">Shipping & Delivery</a>
-						<a href="#" class="sublink">FAQ & Help</a>
-					</div>
-				</div>
-			</div> -->
-<!-- >>>>>>> Stashed changes -->
 		</aside>
 	</div>
   <?php
@@ -79,9 +33,6 @@
 		<button type="button" class="search-button">
 			<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#AB9164" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search-icon lucide-search"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
 		</button>
-		<?php require_once $_SERVER['DOCUMENT_ROOT'] . '/components/cart/cart-icon.php'; ?>
-		<?php
-		// require_once $_SERVER['DOCUMENT_ROOT'] . '/web-tokokue/components/cart/cart-icon.php'; 
-		?>
+		<?php require_once $_SERVER['DOCUMENT_ROOT'] . '/web-tokokue/components/cart/cart-icon.php'; ?>
 	</div>
 </nav>

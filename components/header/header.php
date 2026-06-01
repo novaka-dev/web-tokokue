@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="header.css">
   <?php
   if (session_status() === PHP_SESSION_NONE) session_start();
-  require_once $_SERVER['DOCUMENT_ROOT'] . '/components/cart/cart-icon.php';
+  require_once $_SERVER['DOCUMENT_ROOT'] . '/web-tokokue/components/cart/cart-icon.php';
   ?>
 </head>
 
