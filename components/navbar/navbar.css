@@ -1,3 +1,6 @@
+/*<<<<<<< Updated upstream*/
+@import "../../assets/styles/preflight.css";
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@300;400;500&display=swap");
 .nav-utama {
   width: 100vw;
   height: 5.5rem;
@@ -11,6 +14,7 @@
   align-items: center;
   justify-content: space-between;
   background-color: white;
+  font-family: "Cormorant Garamond", serif;
 }
 .burger {
   display: inline-block;
@@ -69,6 +73,7 @@
   align-items: center;
   gap: 1rem;
 }
+/*<<<<<<< Updated upstream*/
 .search-button {
   padding: 0.5rem;
   background-color: transparent;
@@ -127,3 +132,74 @@
   color: #ab9164;
   padding-left: 8px;
 }
+/*=======
+.navbar-sidebar{
+	width: 19.75rem;
+	height: 100vw;
+	background-color: var(--color-white);
+	position: relative;
+}		
+.navbar-dialog{
+	width: 100vw;
+	background-color: rgba(0, 0, 0, 0.2);
+	height: 100vw;
+}*/
+.sidebarlink{
+	width: 100%;
+	position: relative;
+	padding: 0 10px;
+	top: 70px;
+	display: flex;
+	gap: 0.8rem;
+	flex-direction: column;
+}
+.sidebarlink-item, .sidebarlink-item-head{
+	cursor: pointer;
+	font-weight: bold;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+}
+.sidebarlink-item{
+	overflow: hidden;
+}
+.sidebar-drop{
+	flex-direction: column;
+	position: relative;
+}
+.sidebarlink-sublink{
+	width: 100%;
+	padding: 0 0.5rem;
+	margin-top: 0.8rem;
+	display: none;
+	flex-direction: column;
+}
+.sublink{
+	padding: 0.3rem 0.5rem;
+}
+.sublink:hover{
+	background-color: var(--color-gray-200);
+}
+.sidebarlink-item-head{
+	background-color: transparent;
+	position: relative;
+}
+.shop-container{
+	overflow: hidden;
+}
+.toggle-sublink{
+	position: absolute;
+	left: 50%;
+	display: block;
+	width: 100%;
+	transform: translateX(-50%) scaleX(26) scaleY(2);
+	opacity: 0;
+	border: none;
+	outline: none;
+	cursor: pointer;
+}
+.toggle-sublink:checked +.sidebarlink-sublink{
+	display: flex;
+}
+/*>>>>>>> Stashed changes*/

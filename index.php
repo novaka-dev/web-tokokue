@@ -27,5 +27,8 @@
     include 'components/aboutus/aboutus.php';
   ?>
   </div>
+  <?php 
+  include 'components/footer/footer.php';
+  ?>
 </body>
 </html>

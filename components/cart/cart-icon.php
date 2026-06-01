@@ -5,7 +5,6 @@
  * Klik → masuk ke halaman cart.php
  * Tanpa JS, tanpa drawer
  */
-
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }

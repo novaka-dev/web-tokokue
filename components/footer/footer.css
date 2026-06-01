@@ -1,1 +1,93 @@
- 
+@import "../../assets/styles/preflight.css";
+@import "../../assets/styles/main.css";
+.footer-cake{
+	background-color: #5E5C70;
+	font-family: "Cormorant Garamond", serif;
+	color: white;
+	padding-bottom: 30px;
+}
+.footer-wrapper{
+	margin: 0 195px;
+	display: flex;
+	padding: 30px 0;
+}
+.footer-bottom{
+	margin: 0 195px;
+}
+.footer-logo{
+	width: 100px;
+}
+.footer-left{
+	width: 400px;
+	display: flex;
+	flex-direction: column;
+}
+.footer-heading{
+	font-size: 1.5rem;
+	font-weight: bold;
+	margin-top: 3rem;
+}
+.footer-place-dt{
+	margin-top: 1rem;
+}
+.footer-place-dl{
+	opacity: 0.6;
+	margin-top: 0.2rem;
+}
+.footer-subheading{
+	font-size: 1.2rem;
+}
+.footer-operational{
+	margin-top: 2rem;
+	display: flex;
+	flex-direction: column;
+}
+.footer-operational-day{
+	opacity: 0.6;
+}
+.footer-right{
+	flex: 1;
+}
+.footer-email-input-wrapper{
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	margin-top: 3px;
+}
+.footer-email-input{
+	flex: 1;
+	padding: 0.5rem;
+	border-radius: var(--radius-md) 0 0 var(--radius-md);
+}
+.footer-email-submit{
+	padding-left: 1rem;
+	padding-right: 1rem;
+	border-radius: 0 var(--radius-md) var(--radius-md) 0;
+	background-color: #32313A;
+	color: #ab9164;
+}
+.footer-heading-right{
+	margin-top: 1.6rem;
+	display: block;
+	margin-bottom: 0.5rem;
+}
+.footer-right-child-container{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+.footer-link{
+	color: white;
+	font-size: 0.9rem;
+	display: block;
+	margin-bottom: 0.7rem;
+}
+.footer-right-child .footer-subheading{
+	font-weight: bold;
+	margin-top: 0.5rem;
+	display: block;
+}
+.footer-social{
+	color: white;
+	display: inline-block;
+}
