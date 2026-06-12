@@ -14,7 +14,7 @@
             <nav class="sidebar-nav">
                 <ul class="sidebar-nav__list">
                     <li><a href="/web-tokokue/" class="sidebar-nav__link">Home</a></li>
-                    <li><a href="/web-tokokue/#shop" class="sidebar-nav__link">Shop</a></li>
+                    <li><a href="/web-tokokue/page/shop/shop.php" class="sidebar-nav__link">Shop</a></li>
                     <li><a href="/web-tokokue/#about" class="sidebar-nav__link">About Us</a></li>
                     <li><a href="/web-tokokue/#contact" class="sidebar-nav__link">Contact</a></li>
                     <li><a href="/web-tokokue/page/cart/cart.php" class="sidebar-nav__link">Keranjang</a></li>

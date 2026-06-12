@@ -38,10 +38,18 @@ function render_product_card(array $product): void {
     $alt    = $name;
 ?>
 
-  <article class="product-card" onclick="window.location='page/product-detail/product-detail.php?id=<?= (int)($product['id'] ?? 0) ?>'" style="cursor:pointer">
+<?php
+  $base_url = defined('BASE_URL') ? BASE_URL : '/web-tokokue/';
+  $image_url = $image;
+  if ($image && strpos($image, 'http') !== 0 && strpos($image, '/') !== 0) {
+      $image_url = $base_url . $image;
+  }
+  $detail_url = $base_url . 'page/product-detail/product-detail.php?id=' . (int)($product['id'] ?? 0);
+?>
+  <article class="product-card" onclick="window.location='<?= $detail_url ?>'" style="cursor:pointer">
       <div class="product-card__image-wrap">
-          <?php if ($image): ?>
-              <img src="<?= $image ?>" alt="<?= $alt ?>" loading="lazy">
+          <?php if ($image_url): ?>
+              <img src="<?= $image_url ?>" alt="<?= $alt ?>" loading="lazy">
           <?php else: ?>
               <img src="https://placehold.co/400x400/f4f2ee/b5832a?text=No+Image" alt="No image available" loading="lazy">
           <?php endif; ?>
