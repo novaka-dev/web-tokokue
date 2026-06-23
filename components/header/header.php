@@ -29,7 +29,7 @@
 
       <p>#AssortéCreations</p>
 
-      <a href="">Shop Now</a>
+      <a href="/web-tokokue/page/shop/shop.php" class="btn-shop">Shop Now</a>
 
     </div>
 

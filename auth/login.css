@@ -1,0 +1,651 @@
+/* ============================================ */
+/* Ann's - Stylesheet Autentikasi
+   Ultra Halus & Elegan - Edisi Mewah
+   Animasi lambat untuk kesan premium
+/* ============================================ */
+
+/* ============================================ */
+/* RESET CSS & STYLE DASAR
+   Menghapus default browser agar tampilan konsisten
+/* ============================================ */
+* {
+    margin: 0;           /* Hapus margin default */
+    padding: 0;          /* Hapus padding default */
+    box-sizing: border-box; /* Lebar termasuk padding & border */
+}
+
+/* ============================================ */
+/* VARIABEL CSS (CSS CUSTOM PROPERTIES)
+   Memudahkan pengubahan warna & efek secara global
+/* ============================================ */
+:root {
+    /* --- PALET WARNA - TEMA GOLD MODERN GELAP --- */
+    --cream: #FFFCF8;           /* Warna krem terang untuk background */
+    --cream-dark: #F8F3EC;      /* Krem lebih gelap untuk kontras */
+    --dark-gold: #B8860B;       /* Emas gelap - warna utama */
+    --dark-gold-light: #D4A02A; /* Emas lebih terang untuk hover */
+    --dark-gold-dark: #8B6508;  /* Emas lebih gelap untuk efek */
+    --warm-brown: #6B5B4A;      /* Coklat hangat untuk teks */
+    --light-blush: #FDF6F0;     /* Blush terang untuk aksen */
+    --white: #FFFFFF;           /* Putih murni */
+    
+    /* --- WARNA STATUS --- */
+    --error: #C0392B;           /* Merah untuk pesan error */
+    --error-bg: #FFF0F0;        /* Background error */
+    --success: #2E7D32;         /* Hijau untuk pesan sukses */
+    --success-bg: #E8F5E9;      /* Background sukses */
+    
+    /* --- BAYANGAN (SHADOW) UNTUK KEDALAMAN --- */
+    --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.05);    /* Bayangan kecil */
+    --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.08);    /* Bayangan sedang */
+    --shadow-lg: 0 12px 36px rgba(0, 0, 0, 0.1);    /* Bayangan besar */
+    --shadow-hover: 0 20px 40px rgba(184, 134, 11, 0.2); /* Bayangan hover dengan warna emas */
+    
+    /* --- TRANSISI (ANIMASI PERPINDAHAN) --- */
+    --transition-super-slow: all 0.7s cubic-bezier(0.2, 0.9, 0.4, 1.2); /* Paling lambat */
+    --transition-smooth: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Halus */
+    --transition-gentle: all 0.4s cubic-bezier(0.42, 0, 0.58, 1);        /* Lembut */
+    
+    /* --- DURASI KHUSUS --- */
+    --shine-duration: 1.2s;     /* Durasi efek kilap pada tombol */
+}
+
+/* ============================================ */
+/* STYLE DASAR BODY
+   Mengatur font, warna, dan latar belakang utama
+/* ============================================ */
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    color: var(--warm-brown);   /* Warna teks utama */
+    line-height: 1.5;           /* Jarak antar baris */
+    min-height: 100vh;          /* Tinggi minimal penuh layar */
+    background: var(--cream);   /* Latar belakang krem */
+}
+
+/* ============================================ */
+/* TYPOGRAPHY KHUSUS HEADING
+   Menggunakan font Playfair Display untuk kesan mewah
+/* ============================================ */
+h1, h2, h3, h4, .logo-text, .auth-tab {
+    font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+    font-weight: 500;           /* Ketebalan sedang */
+    letter-spacing: -0.01em;    /* Spasi huruf sedikit rapat */
+}
+
+/* ============================================ */
+/* NAVBAR (BAGIAN NAVIGASI)
+   Posisi fixed agar selalu terlihat saat scroll
+/* ============================================ */
+.navbar {
+    background: var(--white);
+    box-shadow: var(--shadow-sm);
+    padding: 1rem 2rem;
+    position: fixed;    /* Tetap di atas saat scroll */
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;      /* Di atas konten lain */
+    border-bottom: 1px solid rgba(184, 134, 11, 0.15); /* Garis emas tipis */
+    backdrop-filter: blur(10px);        /* Efek blur di belakang */
+    background: rgba(255, 255, 255, 0.95); /* Putih transparan */
+    transition: var(--transition-super-slow);
+}
+
+/* Container navbar - lebar maksimal dan center */
+.navbar-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+/* Logo link */
+.logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+/* Teks logo */
+.logo-text {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--dark-gold-dark);
+    letter-spacing: -0.02em;
+    transition: var(--transition-super-slow);
+}
+
+/* Span dalam logo untuk warna berbeda */
+.logo-text span {
+    color: var(--dark-gold);
+    font-weight: 700;
+}
+
+/* Container link navigasi */
+.nav-links {
+    display: flex;
+    gap: 2rem;          /* Jarak antar link */
+    align-items: center;
+    list-style: none;
+}
+
+/* Style link navigasi */
+.nav-links a {
+    text-decoration: none;
+    color: var(--warm-brown);
+    font-weight: 500;
+    transition: var(--transition-smooth);
+    font-size: 0.95rem;
+    position: relative; /* Untuk efek garis bawah */
+}
+
+/* Efek garis bawah saat hover */
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 1.5px;
+    background: var(--dark-gold);
+    transition: width 0.5s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+}
+
+/* Garis bawah melebar saat hover */
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* Warna berubah saat hover */
+.nav-links a:hover {
+    color: var(--dark-gold);
+}
+
+/* Ikon keranjang - relative untuk badge count */
+.cart-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* Badge jumlah item di keranjang */
+.cart-count {
+    position: absolute;
+    top: -8px;
+    right: -12px;
+    background: var(--dark-gold);
+    color: var(--white);
+    font-size: 0.7rem;
+    font-weight: bold;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition-smooth);
+}
+
+/* ============================================ */
+/* AUTH WRAPPER (BUNGKUSAN FORM)
+   Memastikan form berada di tengah layar
+/* ============================================ */
+.auth-wrapper {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 1.5rem 2rem; /* Padding atas untuk navbar fixed */
+    background: transparent;
+}
+
+/* KARTU AUTHENTIKASI - container putih dengan bayangan */
+.auth-card {
+    max-width: 480px;
+    width: 100%;
+    background: var(--white);
+    border-radius: 28px;        /* Sudut membulat besar */
+    box-shadow: var(--shadow-lg);
+    padding: 2.2rem 2rem 2.5rem;
+    transition: var(--transition-super-slow);
+    border: 1px solid rgba(184, 134, 11, 0.2); /* Border emas tipis */
+}
+
+/* Efek hover pada kartu - bayangan membesar */
+.auth-card:hover {
+    box-shadow: var(--shadow-hover);
+}
+
+/* ============================================ */
+/* TAB (TOMbol LOGIN/REGISTER)
+   Transisi halus antar panel
+/* ============================================ */
+.auth-tabs {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid var(--cream-dark);
+}
+
+/* Style tombol tab */
+.auth-tab {
+    background: none;
+    border: none;
+    padding: 0.75rem 1rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+    font-family: 'Playfair Display', serif;
+    color: var(--warm-brown);
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    position: relative;
+    opacity: 0.7;   /* Tab tidak aktif lebih transparan */
+}
+
+/* Tab aktif - tidak transparan, warna emas */
+.auth-tab.active {
+    opacity: 1;
+    color: var(--dark-gold);
+}
+
+/* Garis bawah tab aktif */
+.auth-tab.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--dark-gold);
+    border-radius: 2px;
+    animation: slideIn 0.5s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+}
+
+/* Animasi garis bawah yang masuk */
+@keyframes slideIn {
+    from {
+        width: 0;
+        opacity: 0;
+    }
+    to {
+        width: 100%;
+        opacity: 1;
+    }
+}
+
+/* Hover pada tab tidak aktif */
+.auth-tab:hover:not(.active) {
+    opacity: 1;
+    color: var(--dark-gold);
+}
+
+/* ============================================ */
+/* PANEL FORM (Login/Register)
+   Animasi kemunculan super halus
+/* ============================================ */
+.auth-panel {
+    display: none;  /* Sembunyikan semua panel */
+    animation: fadeInScale 0.6s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+}
+
+/* Panel aktif ditampilkan */
+.auth-panel.active {
+    display: block;
+}
+
+/* Animasi fade in + zoom halus */
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.96) translateY(12px);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* ============================================ */
+/* STAGGER EFFECT - Form group muncul bergantian
+   Setiap elemen muncul dengan jeda berbeda
+/* ============================================ */
+.auth-panel.active .form-group {
+    animation: slideUp 0.5s cubic-bezier(0.2, 0.9, 0.4, 1.1) forwards;
+    opacity: 0; /* Mulai transparan */
+}
+
+/* Jeda (delay) untuk setiap form group */
+.auth-panel.active .form-group:nth-child(1) { animation-delay: 0.05s; }
+.auth-panel.active .form-group:nth-child(2) { animation-delay: 0.1s; }
+.auth-panel.active .form-group:nth-child(3) { animation-delay: 0.15s; }
+.auth-panel.active .form-group:nth-child(4) { animation-delay: 0.2s; }
+
+/* Jeda untuk tombol submit dan footer */
+.auth-panel.active .btn-submit { animation-delay: 0.25s; }
+.auth-panel.active .auth-footer { animation-delay: 0.3s; }
+
+/* Animasi slide dari bawah */
+@keyframes slideUp {
+    0% {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============================================ */
+/* ALERT MESSAGES (Pesan Sukses/Error)
+/* ============================================ */
+.alert-success {
+    background: var(--success-bg);
+    border-left: 4px solid var(--success);
+    color: var(--success);
+    padding: 0.9rem 1.2rem;
+    border-radius: 16px;
+    margin-bottom: 1.8rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    display: none;
+    animation: fadeInScale 0.5s ease;
+}
+
+/* Munculkan alert saat ada class 'show' */
+.alert-success.show {
+    display: block;
+}
+
+/* ============================================ */
+/* FORM ELEMENTS (Input, Label, dll)
+/* ============================================ */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+/* Label form */
+.form-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 0.5rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--warm-brown);
+    transition: var(--transition-gentle);
+}
+
+/* Link "Lupa Password?" di label */
+.form-label a {
+    font-size: 0.75rem;
+    color: var(--dark-gold);
+    text-decoration: none;
+    transition: var(--transition-smooth);
+}
+
+.form-label a:hover {
+    color: var(--dark-gold-dark);
+    text-decoration: underline;
+}
+
+/* Input field */
+.form-input {
+    width: 100%;
+    padding: 0.9rem 1.2rem;
+    font-size: 0.95rem;
+    font-family: 'Inter', sans-serif;
+    background-color: var(--cream);
+    border: 1.5px solid transparent;
+    border-radius: 20px;
+    transition: var(--transition-smooth);
+    outline: none;
+    color: var(--warm-brown);
+}
+
+/* Input dalam keadaan fokus */
+.form-input:focus {
+    border-color: var(--dark-gold);
+    background-color: var(--white);
+    box-shadow: 0 0 0 3px rgba(184, 134, 11, 0.15);
+    transform: scale(1.01); /* Efek membesar sedikit */
+}
+
+/* Input error (dari validasi) */
+.form-input.error {
+    border-color: var(--error);
+    background-color: var(--error-bg);
+}
+
+/* Pesan error */
+.form-error {
+    font-size: 0.7rem;
+    color: var(--error);
+    margin-top: 0.4rem;
+    margin-left: 0.5rem;
+    display: none;
+}
+
+/* Tampilkan pesan error jika input punya class error */
+.form-input.error + .form-error {
+    display: block;
+}
+
+/* ============================================ */
+/* TOMBOL LOGIN/REGISTER (PUTIH → GOLD)
+   Animasi lambat dan elegan dengan efek shine
+/* ============================================ */
+.btn-submit {
+    width: 100%;
+    background: var(--white);           /* Latar putih */
+    color: var(--dark-gold);            /* Teks emas */
+    border: 2px solid var(--dark-gold); /* Border emas */
+    padding: 1rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 50px;                /* Pill shape */
+    cursor: pointer;
+    margin-top: 0.8rem;
+    font-family: 'Inter', sans-serif;
+    position: relative;                 /* Untuk efek shine */
+    overflow: hidden;                   /* Sembunyikan kelebihan shine */
+    transition: var(--transition-super-slow); /* Transisi super lambat */
+    letter-spacing: 0.5px;
+    background-color: var(--white);
+}
+
+/* EFEK SHINE/KILAP - garis putih yang bergerak */
+.btn-submit::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;        /* Mulai dari luar kiri */
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(255, 255, 255, 0.4), 
+        transparent);
+    transition: left var(--shine-duration) cubic-bezier(0.2, 0.9, 0.4, 1.1);
+}
+
+/* HOVER EFFECT - berubah jadi latar emas, teks putih */
+.btn-submit:hover {
+    background: linear-gradient(135deg, var(--dark-gold) 0%, var(--dark-gold-dark) 100%);
+    color: var(--white);
+    border-color: transparent;
+    transform: translateY(-4px);       /* Terangkat sedikit */
+    box-shadow: var(--shadow-hover);
+    letter-spacing: 1px;              /* Spasi huruf melebar */
+}
+
+/* EFEK SHINE MUNCUL SAAT HOVER - gerakan lambat */
+.btn-submit:hover::before {
+    left: 100%;      /* Bergerak ke kanan */
+}
+
+/* EFEK KLIK (active) - turun sedikit memberi sensasi ditekan */
+.btn-submit:active {
+    transform: translateY(1px);
+    transition: all 0.1s ease;
+}
+
+/* Icon/tanda panah yang muncul saat hover */
+.btn-submit span {
+    position: relative;
+    z-index: 1;      /* Pastikan di atas efek shine */
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Tanda panah '→' disembunyikan dan digeser */
+.btn-submit span::after {
+    content: '→';
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: var(--transition-smooth);
+}
+
+/* Saat hover, panah muncul dengan animasi */
+.btn-submit:hover span::after {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* ============================================ */
+/* FOOTER AUTHENTIKASI (Link ke halaman lain)
+/* ============================================ */
+.auth-footer {
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 0.85rem;
+    color: var(--warm-brown);
+    transition: var(--transition-gentle);
+}
+
+/* Link di footer */
+.auth-footer a {
+    color: var(--dark-gold);
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition-smooth);
+    position: relative;
+}
+
+/* Efek garis bawah di link footer */
+.auth-footer a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--dark-gold);
+    transition: width 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+}
+
+.auth-footer a:hover::after {
+    width: 100%;
+}
+
+.auth-footer a:hover {
+    color: var(--dark-gold-dark);
+}
+
+/* ============================================ */
+/* RESPONSIVE DESIGN
+   Menyesuaikan tampilan untuk layar kecil (mobile)
+/* ============================================ */
+
+/* Tablet & mobile besar (max-width: 640px) */
+@media (max-width: 640px) {
+    /* Kurangi padding kartu */
+    .auth-card {
+        padding: 1.5rem;
+    }
+
+    /* Ukuran tab lebih kecil */
+    .auth-tab {
+        font-size: 1rem;
+        padding: 0.5rem 0.75rem;
+    }
+
+    /* Navbar lebih kecil */
+    .navbar {
+        padding: 0.8rem 1rem;
+    }
+
+    .logo-text {
+        font-size: 1.4rem;
+    }
+
+    .nav-links {
+        gap: 1rem;
+    }
+
+    /* Input padding lebih kecil */
+    .form-input {
+        padding: 0.75rem 1rem;
+    }
+    
+    .auth-wrapper {
+        padding: 90px 1rem 1.5rem;
+    }
+    
+    .btn-submit {
+        padding: 0.85rem;
+    }
+    
+    /* Animasi slide lebih pendek untuk mobile */
+    @keyframes slideUp {
+        0% {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+}
+
+/* Mobile sangat kecil (max-width: 480px) */
+@media (max-width: 480px) {
+    .auth-card {
+        border-radius: 24px; /* Sudut lebih kecil */
+    }
+}
+
+/* ============================================ */
+/* POLISH TAMBAHAN (Detail kecil)
+   Meningkatkan pengalaman pengguna
+/* ============================================ */
+
+/* Warna highlight saat teks di-blok */
+::selection {
+    background: rgba(184, 134, 11, 0.2);
+    color: var(--dark-gold-dark);
+}
+
+/* Custom scrollbar (gulir halaman) */
+::-webkit-scrollbar {
+    width: 6px;          /* Lebar scrollbar */
+}
+::-webkit-scrollbar-track {
+    background: var(--cream-dark);  /* Warna track */
+}
+::-webkit-scrollbar-thumb {
+    background: var(--dark-gold);   /* Warna thumb (yang digeser) */
+    border-radius: 8px;
+    transition: var(--transition-smooth);
+}
+
+/* Smooth focus ring - untuk aksesibilitas keyboard */
+*:focus-visible {
+    outline: 2px solid var(--dark-gold);
+    outline-offset: 2px;
+    border-radius: 8px;
+}

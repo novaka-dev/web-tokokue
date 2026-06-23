@@ -9,6 +9,7 @@
   <title>About Us</title>
 
   <link rel="stylesheet" href="aboutus.css">
+
 </head>
 
 <body>
@@ -17,7 +18,7 @@
 
     <!-- IMAGE -->
     <div class="about-image">
-      <img src="assets/img/tokokue.jpeg" alt="">
+      <img src=<img src="../../assets/img/tokokue.jpeg" alt=""> 
     </div>
 
     <!-- TEXT -->
