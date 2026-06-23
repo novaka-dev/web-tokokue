@@ -12,6 +12,7 @@
   font-family: "DM Sans", sans-serif;
   font-size: 13px;
   color: #888;
+  padding-top: 4.5rem;
 }
 
 .breadcrumb a {
@@ -380,6 +381,25 @@
   .detail-info__qty {
     width: fit-content;
   }
+}
+
+.detail-info__qty-input {
+  width: 70px;
+  height: 44px;
+  text-align: center;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-family: "DM Sans", sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: #1a1a1a;
+  background: #fff;
+  outline: none;
+  padding: 0 8px;
+}
+
+.detail-info__qty-input:focus {
+  border-color: #b5832a;
 }
 
 .detail-gallery__thumb:not(.active) img {

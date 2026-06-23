@@ -9,6 +9,7 @@
 <body>
 
 <?php
+include '../../components/navbar/navbar.php';  // ← tambah ini
 require_once '../../data/products.php';
 
 // Ambil ID produk dari URL: product-detail.php?id=1
@@ -46,11 +47,11 @@ $storage_care  = nl2br(htmlspecialchars($product['storage_care'] ?? ''));
 $main_image    = htmlspecialchars($images[0]);
 ?>
 
-<main class="container">
+<main class="container detail-page">
 
     <!-- Breadcrumb -->
     <nav class="breadcrumb">
-        <a href="index.php">Semua Produk</a>
+        <a href="/web-tokokue">Semua Produk</a>
         <span>/</span>
         <span><?= $name ?></span>
     </nav>
@@ -81,39 +82,37 @@ $main_image    = htmlspecialchars($images[0]);
 
         <!-- Info -->
         <div class="detail-info">
-            <h1 class="detail-info__name"><?= $name ?></h1>
-            <p class="detail-info__price"><?= $price ?></p>
+          <h1 class="detail-info__name"><?= $name ?></h1>
+          <p class="detail-info__price"><?= $price ?></p>
+
+          <form method="POST" action="/web-tokokue/cart-action.php">
+            <input type="hidden" name="id" value="<?= $product['id'] ?>">
+            <input type="hidden" name="action" value="add">
 
             <?php if ($cake_wording): ?>
             <div class="detail-info__wording">
                 <label class="detail-info__label">CAKE WORDING</label>
-                <input type="text" maxlength="25" placeholder="Max. 25 Characters" class="detail-info__input">
+                <input type="text" name="cake_wording" maxlength="25" placeholder="Max. 25 Characters" class="detail-info__input">
             </div>
             <?php endif; ?>
 
-            <!-- Quantity + Actions -->
+            <!-- Quantity pakai input number bawaan HTML -->
             <div class="detail-info__actions">
-                <div class="detail-info__qty">
-                    <button type="button" onclick="changeQty(-1)">−</button>
-                    <span id="qty">1</span>
-                    <button type="button" onclick="changeQty(1)">+</button>
-                </div>
-                <button class="btn btn--cart" type="button">
+                <input type="number" name="qty" value="1" min="1" max="99" class="detail-info__qty-input">
+
+                <button type="submit" name="redirect" value="/web-tokokue/page/product-detail/product-detail.php?id=<?= $product['id'] ?>" class="btn btn--cart">
                     🛒 Tambahkan ke keranjang
                 </button>
-                <button class="btn btn--buy" type="button">
+                <button type="submit" name="redirect" value="/web-tokokue/page/checkout/checkout.php" class="btn btn--buy">
                     ⚡ Beli sekarang
                 </button>
             </div>
 
-            <!-- <button class="detail-info__wishlist" type="button">
-                ♡ &nbsp;Tambahkan ke wishlist
-            </button> -->
-
             <?php if ($cake_wording): ?>
             <p class="detail-info__note">Cake Wording: Max. 25 characters</p>
             <?php endif; ?>
-        </div>
+          </form>
+      </div>
 
     </section>
 

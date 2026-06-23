@@ -13,7 +13,7 @@
 
 <body>
 
-  <section class="about">
+  <section class="about"  id="about">
 
     <!-- IMAGE -->
     <div class="about-image">
@@ -23,7 +23,7 @@
     <!-- TEXT -->
     <div class="about-text">
 
-      <h1>Tentang Kami</h1>
+      <h1 >Tentang Kami</h1>
 
       <div class="line"></div>
 
