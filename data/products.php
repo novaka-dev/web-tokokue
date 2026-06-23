@@ -88,12 +88,12 @@ $products = [
     ],
     [
         'id'    => 6,
-        'name'  => 'Matcha Red Bean',
+        'name'  => 'Jakarta Cheescake',
         'price' => 475000,
-        'image' => 'assets/images/matcha-red-bean.jpg',
+        'image' => 'assets/images/6.jpg',
         'badge' => 'New',
         'images' => [
-            'assets/images/matcha-red-bean.jpg',
+            'assets/images/jakarta-cheesecake.jpg',
         ],
         'cake_wording'   => true,
         'details'        => "Perpaduan harmonis antara sponge matcha Uji premium dan red bean paste yang lembut. Setiap layer menghadirkan rasa earthy matcha yang khas berpadu manisnya kacang merah tradisional.\n\nDidekorasi dengan bubuk matcha dan red bean utuh di atasnya, memberikan tampilan elegan bernuansa Jepang yang memanjakan mata sekaligus lidah.",

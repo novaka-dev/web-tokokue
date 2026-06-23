@@ -1,36 +1,89 @@
 <?php
 session_start();
 
-// ── Simple demo handler ──────────────────────────────────────────────────────
-// Replace this block with your actual DB logic.
+// ── FUNGSI MANAJEMEN USER DENGAN JSON ──
+function getUsersFile() {
+    return __DIR__ . '/users.json';
+}
+
+function loadUsers() {
+    $file = getUsersFile();
+    if (file_exists($file)) {
+        $content = file_get_contents($file);
+        $users = json_decode($content, true);
+        return is_array($users) ? $users : [];
+    }
+    return [];
+}
+
+function saveUsers($users) {
+    $file = getUsersFile();
+    file_put_contents($file, json_encode($users, JSON_PRETTY_PRINT));
+}
+
+// ── INISIALISASI USER DEFAULT ──
+$users = loadUsers();
+
+// Tambahkan akun default jika file kosong
+if (empty($users)) {
+    $users = [
+        'admin@anns.id' => [
+            'name' => 'Administrator',
+            'password' => password_hash('admin123', PASSWORD_DEFAULT),
+            'created_at' => date('Y-m-d H:i:s'),
+            'role' => 'admin'
+        ]
+    ];
+    saveUsers($users);
+}
+
 $loginError    = '';
 $registerError = '';
 $registerOk    = false;
-$activeTab     = 'login'; // which tab to show on load
+$activeTab     = 'login';
+
+// Cek parameter URL untuk pesan sukses
+if (isset($_GET['registered']) && $_GET['registered'] === 'success') {
+    $registerOk = true;
+    $activeTab = 'login';
+}
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // ── LOGIN ──
     if (isset($_POST['action']) && $_POST['action'] === 'login') {
         $activeTab = 'login';
-        $email    = trim($_POST['email']    ?? '');
-        $password =       $_POST['password'] ?? '';
+        $email    = trim($_POST['email'] ?? '');
+        $password = $_POST['password'] ?? '';
+        $remember = isset($_POST['remember']) ? true : false;
 
         if (empty($email) || empty($password)) {
             $loginError = 'Email dan kata sandi wajib diisi.';
         } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $loginError = 'Format email tidak valid.';
         } else {
-            // TODO: replace with real DB check
-            // Example:
-            // $user = getUserByEmail($email);
-            // if ($user && password_verify($password, $user['password_hash'])) { ... }
-            if ($email === 'demo@anns.id' && $password === 'demo1234') {
-                $_SESSION['user_email'] = $email;
-                header('Location: index.php'); // redirect after login
-                exit;
+            $users = loadUsers();
+            
+            if (isset($users[$email])) {
+                if (password_verify($password, $users[$email]['password'])) {
+                    $_SESSION['user_logged_in'] = true;
+                    $_SESSION['user_email'] = $email;
+                    $_SESSION['user_name'] = $users[$email]['name'];
+                    $_SESSION['user_role'] = $users[$email]['role'] ?? 'user';
+                    
+                    if ($remember) {
+                        setcookie('user_email', $email, time() + (86400 * 30), '/');
+                        setcookie('user_name', $users[$email]['name'], time() + (86400 * 30), '/');
+                    }
+                    
+                    $redirect = $_POST['redirect'] ?? '../index.php';
+                    header('Location: ' . $redirect);
+                    exit;
+                } else {
+                    $loginError = 'Email atau kata sandi salah.';
+                }
             } else {
-                $loginError = 'Email atau kata sandi salah.';
+                $loginError = 'Email tidak terdaftar. Silakan daftar terlebih dahulu.';
             }
         }
     }
@@ -38,10 +91,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // ── REGISTER ──
     if (isset($_POST['action']) && $_POST['action'] === 'register') {
         $activeTab = 'register';
-        $name      = trim($_POST['name']       ?? '');
-        $email     = trim($_POST['reg_email']  ?? '');
-        $password  =       $_POST['reg_password'] ?? '';
-        $confirm   =       $_POST['reg_confirm']  ?? '';
+        $name      = trim($_POST['name'] ?? '');
+        $email     = trim($_POST['reg_email'] ?? '');
+        $password  = $_POST['reg_password'] ?? '';
+        $confirm   = $_POST['reg_confirm'] ?? '';
+
+        $users = loadUsers();
 
         if (empty($name) || empty($email) || empty($password) || empty($confirm)) {
             $registerError = 'Semua kolom wajib diisi.';
@@ -51,14 +106,44 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $registerError = 'Kata sandi minimal 8 karakter.';
         } elseif ($password !== $confirm) {
             $registerError = 'Konfirmasi kata sandi tidak cocok.';
+        } elseif (isset($users[$email])) {
+            $registerError = 'Email sudah terdaftar. Silakan login.';
         } else {
-            // TODO: save to DB
-            // $hash = password_hash($password, PASSWORD_DEFAULT);
-            // insertUser($name, $email, $hash);
-            $registerOk = true;
-            $activeTab  = 'login';
+            // Simpan user baru
+            $users[$email] = [
+                'name' => $name,
+                'password' => password_hash($password, PASSWORD_DEFAULT),
+                'created_at' => date('Y-m-d H:i:s'),
+                'role' => 'user'
+            ];
+            
+            saveUsers($users);
+            
+            // Redirect ke login dengan parameter sukses
+            header('Location: login.php?registered=success');
+            exit;
         }
     }
+}
+
+// Auto-login dari cookie
+if (!isset($_SESSION['user_logged_in']) && isset($_COOKIE['user_email'])) {
+    $users = loadUsers();
+    $email = $_COOKIE['user_email'];
+    if (isset($users[$email])) {
+        $_SESSION['user_logged_in'] = true;
+        $_SESSION['user_email'] = $email;
+        $_SESSION['user_name'] = $users[$email]['name'];
+        $_SESSION['user_role'] = $users[$email]['role'] ?? 'user';
+        header('Location: ../index.php');
+        exit;
+    }
+}
+
+// Cek login status
+if (isset($_SESSION['user_logged_in']) && $_SESSION['user_logged_in'] === true) {
+    header('Location: ../index.php');
+    exit;
 }
 ?>
 <!DOCTYPE html>
@@ -68,12 +153,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ann's — Masuk / Daftar</title>
   <link rel="stylesheet" href="../assets/styles/main.css" />
+  <link rel="stylesheet" href="login.css" />
 </head>
 <body>
 
   <!-- ── NAVBAR ── -->
   <?php
-  include '../components/navbar/navbar.php';  // ← tambah ini
+  include '../components/navbar/navbar.php';
   ?>
 
   <!-- ── AUTH CARD ── -->
@@ -82,8 +168,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
       <!-- Tabs -->
       <div class="auth-tabs">
-        <button class="auth-tab <?= $activeTab === 'login'    ? 'active' : '' ?>"
-                onclick="switchTab('login')"    id="tab-login">Log Masuk</button>
+        <button class="auth-tab <?= $activeTab === 'login' ? 'active' : '' ?>"
+                onclick="switchTab('login')" id="tab-login">Log Masuk</button>
         <button class="auth-tab <?= $activeTab === 'register' ? 'active' : '' ?>"
                 onclick="switchTab('register')" id="tab-register">Daftar</button>
       </div>
@@ -92,7 +178,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <div class="auth-panel <?= $activeTab === 'login' ? 'active' : '' ?>" id="panel-login">
 
         <?php if ($registerOk): ?>
-          <div class="alert-success show">Akun berhasil dibuat! Silakan log masuk.</div>
+          <div class="alert-success show">
+            ✅ Akun berhasil dibuat! Silakan log masuk.
+          </div>
         <?php endif; ?>
 
         <?php if ($loginError): ?>
@@ -103,6 +191,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         <form method="POST" novalidate id="form-login">
           <input type="hidden" name="action" value="login" />
+          <input type="hidden" name="redirect" value="<?= htmlspecialchars($_GET['redirect'] ?? '../index.php') ?>" />
 
           <div class="form-group">
             <label class="form-label">
@@ -113,7 +202,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
               name="email"
               class="form-input <?= ($loginError && empty($_POST['email'])) ? 'error' : '' ?>"
               placeholder="Email"
-              value="<?= htmlspecialchars($_POST['email'] ?? '') ?>"
+              value="<?= htmlspecialchars($_POST['email'] ?? $_COOKIE['user_email'] ?? '') ?>"
               autocomplete="email"
               required
             />
@@ -123,7 +212,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           <div class="form-group">
             <label class="form-label">
               <span>Kata Sandi</span>
-              <a href="forgot-password.php">Atur Ulang Kata Sandi</a>
             </label>
             <input
               type="password"
@@ -134,7 +222,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
               required
             />
             <div class="form-error">Kata sandi wajib diisi.</div>
-          </div>
+        </div>
 
           <button type="submit" class="btn-submit">
             <span>Log masuk</span>
@@ -145,6 +233,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           Tidak punya akun?
           <a href="#" onclick="switchTab('register'); return false;">Daftar sekarang</a>
         </p>
+        
       </div><!-- /panel-login -->
 
       <!-- ── REGISTER PANEL ── -->
@@ -213,6 +302,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div class="form-error">Konfirmasi kata sandi tidak cocok.</div>
           </div>
 
+          <div style="margin-bottom:16px; font-size:0.8rem; color:#999;">
+            Dengan mendaftar, Anda menyetujui <a href="#" style="color:#b5832a;">Syarat & Ketentuan</a> kami.
+          </div>
+
           <button type="submit" class="btn-submit">
             <span>Buat Akun</span>
           </button>
@@ -231,11 +324,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     function switchTab(tab) {
       document.querySelectorAll('.auth-tab').forEach(t => t.classList.remove('active'));
       document.querySelectorAll('.auth-panel').forEach(p => p.classList.remove('active'));
-      document.getElementById('tab-'   + tab).classList.add('active');
+      document.getElementById('tab-' + tab).classList.add('active');
       document.getElementById('panel-' + tab).classList.add('active');
     }
 
-    // Client-side validation (progressive enhancement)
+    // Client-side validation
     document.querySelectorAll('.form-input[required]').forEach(input => {
       input.addEventListener('blur', () => {
         if (!input.value.trim()) {
@@ -248,6 +341,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (input.value.trim()) input.classList.remove('error');
       });
     });
+
+    // Konfirmasi password di register
+    const regPassword = document.querySelector('input[name="reg_password"]');
+    const regConfirm = document.querySelector('input[name="reg_confirm"]');
+    
+    if (regConfirm) {
+      regConfirm.addEventListener('input', () => {
+        if (regPassword.value !== regConfirm.value) {
+          regConfirm.classList.add('error');
+        } else {
+          regConfirm.classList.remove('error');
+        }
+      });
+    }
+
+    // Cek parameter URL untuk menampilkan tab yang sesuai
+    window.onload = function() {
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.get('registered') === 'success') {
+        switchTab('login');
+      }
+    }
   </script>
 </body>
 </html>

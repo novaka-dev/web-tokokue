@@ -649,3 +649,34 @@ h1, h2, h3, h4, .logo-text, .auth-tab {
     outline-offset: 2px;
     border-radius: 8px;
 }
+
+/* Tambahan untuk info akun demo */
+.demo-account-info {
+    margin-top: 20px;
+    padding: 15px 20px;
+    background: #f8f4ee;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    color: #6b5b4a;
+    border: 1px solid #e8ddd0;
+}
+
+.demo-account-info p {
+    margin: 4px 0;
+}
+
+.demo-account-info strong {
+    color: #b5832a;
+}
+
+/* Style untuk checkbox remember me */
+input[type="checkbox"] {
+    accent-color: #b5832a;
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+input[type="checkbox"] + label {
+    cursor: pointer;
+}
