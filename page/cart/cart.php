@@ -2,12 +2,12 @@
 if (session_status() === PHP_SESSION_NONE) session_start();
 
 require_once '../../components/cart/cart.php';
+require_once '../../config.php';
 
 $items = cart_items();
 $total = cart_total();
 $count = cart_count();
-
-$root = '/web-tokokue/';
+$root  = BASE_URL;
 ?>
 <!DOCTYPE html>
 <html lang="id">
@@ -16,9 +16,11 @@ $root = '/web-tokokue/';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Keranjang — Ann's Bakery</title>
     <link rel="stylesheet" href="../../assets/styles/main.css">
+    <link rel="stylesheet" href="cart.css">
 </head>
 <body>
 
+<?php include '../../components/navbar/navbar.php'; ?>
 
 <main class="container cart-page">
 
@@ -28,7 +30,6 @@ $root = '/web-tokokue/';
         <span>Keranjang</span>
     </nav>
 
-    <!-- Tombol back -->
     <a href="<?= $root ?>index.php" class="btn-back">← Lanjut Belanja</a>
     <h1 class="cart-page__title">Keranjang <span>(<?= $count ?> item)</span></h1>
 
@@ -47,7 +48,6 @@ $root = '/web-tokokue/';
 
         <div class="cart-page__layout">
 
-            <!-- List item -->
             <section class="cart-page__items">
                 <ul class="cart-page__list">
                     <?php foreach ($items as $item): ?>
@@ -65,7 +65,6 @@ $root = '/web-tokokue/';
                             <p class="cart-page__price"><?= cart_format_rupiah($item['price']) ?></p>
 
                             <div class="cart-page__controls">
-                                <!-- Kurangi -->
                                 <form method="POST" action="<?= $root ?>cart-action.php" style="display:inline">
                                     <input type="hidden" name="action" value="update">
                                     <input type="hidden" name="id" value="<?= $item['id'] ?>">
@@ -76,7 +75,6 @@ $root = '/web-tokokue/';
 
                                 <span class="cart-page__qty"><?= $item['qty'] ?></span>
 
-                                <!-- Tambah -->
                                 <form method="POST" action="<?= $root ?>cart-action.php" style="display:inline">
                                     <input type="hidden" name="action" value="update">
                                     <input type="hidden" name="id" value="<?= $item['id'] ?>">
@@ -85,7 +83,6 @@ $root = '/web-tokokue/';
                                     <button type="submit" class="cart-page__qty-btn">+</button>
                                 </form>
 
-                                <!-- Hapus -->
                                 <form method="POST" action="<?= $root ?>cart-action.php" style="display:inline">
                                     <input type="hidden" name="action" value="remove">
                                     <input type="hidden" name="id" value="<?= $item['id'] ?>">
@@ -102,7 +99,6 @@ $root = '/web-tokokue/';
                     <?php endforeach; ?>
                 </ul>
 
-                <!-- Kosongkan -->
                 <form method="POST" action="<?= $root ?>cart-action.php" class="cart-page__clear-form">
                     <input type="hidden" name="action" value="clear">
                     <input type="hidden" name="redirect" value="<?= $root ?>page/cart/cart.php">
@@ -110,7 +106,6 @@ $root = '/web-tokokue/';
                 </form>
             </section>
 
-            <!-- Summary -->
             <aside class="cart-page__summary">
                 <h2 class="cart-page__summary-title">Ringkasan</h2>
 
@@ -140,6 +135,8 @@ $root = '/web-tokokue/';
     <?php endif; ?>
 
 </main>
+
+<?php include '../../components/footer/footer.php'; ?>
 
 </body>
 </html>

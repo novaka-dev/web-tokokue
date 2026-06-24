@@ -3,16 +3,17 @@
  * components/cart/cart-icon.php
  * Icon keranjang dengan badge jumlah item
  * Klik → masuk ke halaman cart.php
- * Tanpa JS, tanpa drawer
  */
+
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-require_once __DIR__ . '/../cart/cart.php';
+require_once __DIR__ . '/cart.php';
+require_once __DIR__ . '/../../config.php';
 
 $count = cart_count();
-$root  = '/web-tokokue/';
+$root  = BASE_URL;
 ?>
 
 <a href="<?= $root ?>page/cart/cart.php" class="cart-icon" aria-label="Keranjang">

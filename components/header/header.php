@@ -18,22 +18,15 @@
 
 <body>
 
-  <!-- HEADER -->
-  <header>
-
-    <div class="hero">
-
-      <h1>Start It With Cake</h1>
-
-      <h2>A Thoughtful Way to Celebrate.</h2>
-
-      <p>#AssortéCreations</p>
-
-      <a href="/web-tokokue/page/shop/shop.php" class="btn-shop">Shop Now</a>
-
-    </div>
-
-  </header>
+  <!-- header.php -->
+<header style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('/web-tokokue/assets/img/tuku.jpeg');">
+  <div class="hero">
+    <h1>Start It With Cake</h1>
+    <h2>A Thoughtful Way to Celebrate.</h2>
+    <p>#AssortéCreations</p>
+    <a href="/web-tokokue/page/shop/shop.php" class="btn-shop">Shop Now</a>
+  </div>
+</header>
 
 </body>
 </html>

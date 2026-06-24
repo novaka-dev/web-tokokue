@@ -2,14 +2,19 @@
 /**
  * config.php
  * Konfigurasi global project
- * Taruh di ROOT project
+ * SATU-SATUNYA TEMPAT DEFINISI KONSTANTA
  */
 
-// Nama folder project di XAMPP (sesuaikan!)
-define('FOLDER_NAME', 'web-tokokue');
+// Cek apakah konstanta sudah didefinisikan
+if (!defined('FOLDER_NAME')) {
+    define('FOLDER_NAME', 'web-tokokue');
+}
 
-// Base URL — dipakai untuk path aset
-define('BASE_URL', '/' . FOLDER_NAME . '/');
+if (!defined('BASE_URL')) {
+    define('BASE_URL', '/' . FOLDER_NAME . '/');
+}
 
-// Nomor WhatsApp tujuan order (format: 628xxx, tanpa + atau spasi)
-define('WA_NUMBER', '6282111707125'); // ← ganti dengan nomor WA kamu
+if (!defined('WA_NUMBER')) {
+    define('WA_NUMBER', '6282111707125'); // Ganti dengan nomor WA kamu
+}
+?>

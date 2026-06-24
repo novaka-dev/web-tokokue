@@ -2,26 +2,17 @@
 /**
  * product-card.php
  * Reusable product card component untuk Ann's Bakery
- *
- * Cara pakai:
- *   $products = [...]; // array produk
- *   include 'product-card.php';
- *
- * Atau panggil fungsi render_product_grid($products) / render_product_card($product)
- * secara individual.
- *
- * Struktur array produk:
- *   [
- *     'name'   => string  — nama produk (wajib)
- *     'price'  => int     — harga dalam Rupiah, tanpa titik/koma (wajib)
- *     'image'  => string  — path / URL gambar (wajib)
- *     'badge'  => string  — label badge opsional, mis. "New", "Best Seller"
- *   ]
+ * TIDAK ADA DEFINISI BASE_URL DI SINI
  */
+
+// Cek apakah BASE_URL sudah didefinisikan
+if (!defined('BASE_URL')) {
+    // Fallback jika config.php tidak di-include
+    define('BASE_URL', '/web-tokokue/');
+}
 
 /**
  * Format harga ke format Rupiah
- * Contoh: 590000 → "Rp. 590.000"
  */
 function format_rupiah(int $amount): string {
     return 'Rp. ' . number_format($amount, 0, ',', '.');
@@ -36,38 +27,35 @@ function render_product_card(array $product): void {
     $image  = htmlspecialchars($product['image'] ?? '');
     $badge  = htmlspecialchars($product['badge'] ?? '');
     $alt    = $name;
+    
+    // Build image URL dengan BASE_URL
+    $image_url = $image;
+    if ($image && strpos($image, 'http') !== 0 && strpos($image, '/') !== 0) {
+        $image_url = BASE_URL . $image;
+    }
+    
+    $detail_url = BASE_URL . 'page/product-detail/product-detail.php?id=' . (int)($product['id'] ?? 0);
 ?>
+    <article class="product-card" onclick="window.location='<?= $detail_url ?>'" style="cursor:pointer">
+        <div class="product-card__image-wrap">
+            <?php if ($image_url): ?>
+                <img src="<?= $image_url ?>" alt="<?= $alt ?>" loading="lazy">
+            <?php else: ?>
+                <img src="https://placehold.co/400x400/f4f2ee/b5832a?text=No+Image" alt="No image available" loading="lazy">
+            <?php endif; ?>
 
-<?php
-  $base_url = defined('BASE_URL') ? BASE_URL : '/web-tokokue/';
-  $image_url = $image;
-  if ($image && strpos($image, 'http') !== 0 && strpos($image, '/') !== 0) {
-      $image_url = $base_url . $image;
-  }
-  $detail_url = $base_url . 'page/product-detail/product-detail.php?id=' . (int)($product['id'] ?? 0);
-?>
-  <article class="product-card" onclick="window.location='<?= $detail_url ?>'" style="cursor:pointer">
-      <div class="product-card__image-wrap">
-          <?php if ($image_url): ?>
-              <img src="<?= $image_url ?>" alt="<?= $alt ?>" loading="lazy">
-          <?php else: ?>
-              <img src="https://placehold.co/400x400/f4f2ee/b5832a?text=No+Image" alt="No image available" loading="lazy">
-          <?php endif; ?>
+            <?php if ($badge): ?>
+                <span class="product-card__badge"><?= $badge ?></span>
+            <?php endif; ?>
+        </div>
 
-          <?php if ($badge): ?>
-              <span class="product-card__badge"><?= $badge ?></span>
-          <?php endif; ?>
-      </div>
-
-    <div class="product-card__body">
-        <h3 class="product-card__name"><?= $name ?></h3>
-          <?php if ($price): ?>
-              <p class="product-card__price"><?= $price ?></p>
-          <?php endif; ?>
-
-      </div>
-  </article>
-
+        <div class="product-card__body">
+            <h3 class="product-card__name"><?= $name ?></h3>
+            <?php if ($price): ?>
+                <p class="product-card__price"><?= $price ?></p>
+            <?php endif; ?>
+        </div>
+    </article>
 <?php
 }
 
@@ -87,3 +75,4 @@ function render_product_grid(array $products): void {
     </div>
 <?php
 }
+?>

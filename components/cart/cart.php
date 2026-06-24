@@ -2,7 +2,7 @@
 /**
  * components/cart/cart.php
  * Keranjang belanja berbasis PHP Session
- * Tidak butuh database, tidak butuh JS
+ * TIDAK ADA DEFINISI BASE_URL DI SINI
  */
 
 if (session_status() === PHP_SESSION_NONE) {
@@ -22,12 +22,16 @@ function cart_add(array $product, int $qty = 1, string $cake_wording = ''): void
 
     if (isset($_SESSION['cart'][$id])) {
         $_SESSION['cart'][$id]['qty'] += $qty;
+        // Update wording jika ada
+        if (!empty($cake_wording)) {
+            $_SESSION['cart'][$id]['cake_wording'] = $cake_wording;
+        }
     } else {
         $_SESSION['cart'][$id] = [
             'id'           => $id,
             'name'         => $product['name'],
             'price'        => $product['price'],
-            'image'        => $product['image'],
+            'image'        => $product['image'], // path relatif
             'qty'          => $qty,
             'cake_wording' => $cake_wording,
         ];
@@ -96,3 +100,4 @@ function cart_count(): int {
 function cart_format_rupiah(int $amount): string {
     return 'Rp ' . number_format($amount, 0, ',', '.');
 }
+?>

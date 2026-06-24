@@ -2,8 +2,14 @@
 /**
  * data/products.php
  * Data dummy produk Ann's Bakery
+ * PATH GAMBAR RELATIF (tanpa BASE_URL)
  */
-define('BASE_URL', '/web-tokokue/');
+
+// Cek apakah BASE_URL sudah didefinisikan (fallback)
+if (!defined('BASE_URL')) {
+    // Fallback jika config.php tidak di-include
+    define('BASE_URL', '/web-tokokue/');
+}
 
 $products = [
     [
@@ -12,15 +18,12 @@ $products = [
         'price' => 590000,
         'image' => 'assets/images/products/1.webp',
         'images' => [
-            BASE_URL .'assets/images/products/1.webp',
-            BASE_URL .'assets/images/products/2.jpg',
-            BASE_URL .'assets/images/products/3.webp',
-            BASE_URL .'assets/images/products/4.webp',
+            'assets/images/products/1.webp',
         ],
         'badge' => 'Best Seller',
-        'cake_wording'   => true,
-        'details'        => "Assorted cake box premium yang menghadirkan 10 slice cake pilihan dari signature creations Ann's dalam satu kemasan elegan. Dirancang untuk memberikan pengalaman menikmati cake berbagai rasa tanpa perlu memilih satu whole cake, setiap potongan menghadirkan perpaduan tekstur dan karakter rasa yang berbeda.\n\nDi dalam satu assorted cake Jakarta ini, Anda akan menemukan lima varian cake favorit Ann's—mulai dari chocolate cake klasik hingga cheesecake yang creamy dan cake buah yang menyegarkan. Setiap cake slice premium disiapkan dengan bahan berkualitas dan perhatian pada detail, menjadikannya pilihan sempurna untuk berbagi dalam momen berkumpul, perayaan keluarga, maupun jamuan istimewa.",
-        'storage_care'   => "Simpan dalam lemari pendingin (2–8°C). Keluarkan 15–20 menit sebelum disajikan. Konsumsi dalam 2 hari setelah diterima. Jangan bekukan produk.",
+        'cake_wording' => true,
+        'details' => "Assorted cake box premium dengan berbagai pilihan rasa terbaik dari Ann's Bakery. Cocok untuk hadiah dan acara spesial.",
+        'storage_care' => "Simpan dalam lemari pendingin (2–8°C) dan konsumsi dalam 3 hari untuk kualitas terbaik.",
     ],
     [
         'id'    => 2,
@@ -28,15 +31,12 @@ $products = [
         'price' => 595000,
         'image' => 'assets/images/products/2.jpg',
         'images' => [
-            BASE_URL .'assets/images/products/2.jpg',
-            BASE_URL .'assets/images/products/2.jpg',
-            BASE_URL .'assets/images/products/3.webp',
-            BASE_URL .'assets/images/products/4.webp',
+            'assets/images/products/2.jpg',
         ],
-        'badge'          => null,
-        'cake_wording'   => false,
-        'details'        => "Koleksi petit fours eksklusif Ann's yang menampilkan ragam kue mungil berkualitas tinggi dalam satu kotak cantik. Setiap gigitan menghadirkan cita rasa yang kaya—dari ganache cokelat belgia, buah segar, hingga krim vanilla lembut.\n\nCocok sebagai hampers, hadiah, atau suguhan spesial untuk tamu istimewa. Dikemas dalam kotak premium siap hadir.",
-        'storage_care'   => "Simpan di tempat sejuk dan kering, jauh dari sinar matahari langsung. Konsumsi dalam 3 hari. Beberapa item mengandung krim—simpan dalam kulkas setelah dibuka.",
+        'badge' => null,
+        'cake_wording' => false,
+        'details' => "Koleksi petit fours eksklusif dengan 12 varian rasa yang menggugah selera. Sajian elegan untuk segala acara.",
+        'storage_care' => "Simpan di tempat sejuk dan kering, hindari sinar matahari langsung.",
     ],
     [
         'id'    => 3,
@@ -44,31 +44,25 @@ $products = [
         'price' => 580000,
         'image' => 'assets/images/products/3.webp',
         'images' => [
-            BASE_URL .'assets/images/products/3.webp',
-            BASE_URL .'assets/images/products/2.jpg',
-            BASE_URL .'assets/images/products/3.webp',
-            BASE_URL .'assets/images/products/4.webp',
+            'assets/images/products/3.webp',
         ],
-        'badge'          => 'Best Seller',
-        'cake_wording'   => true,
-        'details'        => "Fruit Cake Ann's menggunakan sponge vanilla lembut berlapis krim chantilly ringan, dihiasi aneka buah segar pilihan seperti strawberry, kiwi, anggur, dan cherry. Tampilannya yang segar dan natural menjadikannya favorit untuk perayaan ulang tahun maupun acara keluarga.\n\nSetiap layer disusun dengan presisi untuk memastikan keseimbangan rasa manis buah dan lembutnya krim di setiap irisan.",
-        'storage_care'   => "Simpan dalam kulkas (2–8°C). Sajikan dingin. Hindari menyimpan lebih dari 2 hari karena kesegaran buah. Jangan bekukan.",
+        'badge' => 'Best Seller',
+        'cake_wording' => true,
+        'details' => "Fruit Cake Ann's menggunakan sponge vanilla lembut dengan topping buah-buahan segar pilihan. Perpaduan sempurna antara manis dan segar.",
+        'storage_care' => "Simpan dalam kulkas (2–8°C) dan konsumsi dalam 2-3 hari.",
     ],
     [
         'id'    => 4,
         'name'  => 'Corn Cheese Tres Leches',
         'price' => 426000,
         'image' => 'assets/images/products/4.webp',
-        'badge' => 'New',
         'images' => [
-            BASE_URL .'assets/images/products/4.webp',
-            BASE_URL .'assets/images/products/2.jpg',
-            BASE_URL .'assets/images/products/3.webp',
-            BASE_URL .'assets/images/products/4.webp',
+            'assets/images/products/4.webp',
         ],
-        'cake_wording'   => true,
-        'details'        => "Inovasi unik Ann's yang memadukan kelembutan tres leches klasik dengan cita rasa gurih jagung manis dan keju. Cake direndam dalam tiga jenis susu pilihan hingga teksturnya sangat lembab dan meleleh di mulut.\n\nTaburan keju parut dan popcorn jagung di atasnya menciptakan kontras rasa manis-gurih yang tak terduga namun adiktif. Pilihan sempurna bagi pecinta dessert yang ingin mencoba sesuatu yang berbeda.",
-        'storage_care'   => "Simpan dalam kulkas (2–8°C) dalam keadaan tertutup. Sajikan dingin. Konsumsi dalam 3 hari setelah diterima.",
+        'badge' => 'New',
+        'cake_wording' => true,
+        'details' => "Inovasi unik Ann's yang memadukan kelembutan tres leches dengan gurihnya jagung dan keju. Sensasi rasa yang tak terlupakan.",
+        'storage_care' => "Simpan dalam kulkas (2–8°C) dan konsumsi dalam 2 hari.",
     ],
     [
         'id'    => 5,
@@ -76,66 +70,51 @@ $products = [
         'price' => 520000,
         'image' => 'assets/images/products/5.png',
         'images' => [
-            BASE_URL .'assets/images/products/5.png',
-            BASE_URL .'assets/images/products/2.jpg',
-            BASE_URL .'assets/images/products/3.webp',
-            BASE_URL .'assets/images/products/4.webp',
+            'assets/images/products/5.png',
         ],
-        'badge'          => null,
-        'cake_wording'   => true,
-        'details'        => "Tiramisu klasik Ann's versi whole cake dengan lapisan savoiardi yang direndam espresso berkualitas, diselingi krim mascarpone lembut, dan ditaburi cocoa powder premium.\n\nResep autentik yang dieksekusi dengan bahan impor pilihan, menghasilkan tiramisu dengan kedalaman rasa kopi yang pas—tidak terlalu pahit, tidak terlalu manis.",
-        'storage_care'   => "Simpan dalam kulkas (2–8°C). Konsumsi dalam 3 hari. Mengandung alkohol dalam jumlah kecil dari ekstrak vanilla. Tidak direkomendasikan untuk anak di bawah 5 tahun.",
+        'badge' => null,
+        'cake_wording' => true,
+        'details' => "Tiramisu klasik Ann's versi whole cake dengan lapisan mascarpone creamy dan bubuk coklat premium. Autentik Italia di setiap gigitan.",
+        'storage_care' => "Simpan dalam kulkas (2–8°C) dan konsumsi dalam 2-3 hari.",
     ],
     [
         'id'    => 6,
-        'name'  => 'Jakarta Cheescake',
+        'name'  => 'Jakarta Cheesecake',
         'price' => 475000,
-        'image' => 'assets/images/6.jpg',
-        'badge' => 'New',
+        'image' => 'assets/images/products/jc.jpg',
         'images' => [
-            'assets/images/jakarta-cheesecake.jpg',
+            'assets/images/products/jc.jpg',
         ],
-        'cake_wording'   => true,
-        'details'        => "Perpaduan harmonis antara sponge matcha Uji premium dan red bean paste yang lembut. Setiap layer menghadirkan rasa earthy matcha yang khas berpadu manisnya kacang merah tradisional.\n\nDidekorasi dengan bubuk matcha dan red bean utuh di atasnya, memberikan tampilan elegan bernuansa Jepang yang memanjakan mata sekaligus lidah.",
-        'storage_care'   => "Simpan dalam kulkas (2–8°C). Keluarkan 10 menit sebelum disajikan agar krim kembali lembut. Konsumsi dalam 2 hari.",
+        'badge' => 'New',
+        'cake_wording' => true,
+        'details' => "Perpaduan harmonis antara sponge matcha Uji premium dengan cream cheese yang lembut. Sentuhan modern dengan cita rasa lokal.",
+        'storage_care' => "Simpan dalam kulkas (2–8°C) dan konsumsi dalam 2-3 hari.",
     ],
     [
         'id'    => 7,
         'name'  => 'Classic Black Forest',
         'price' => 450000,
-        'image' => 'assets/images/black-forest.jpg',
+        'image' => 'assets/images/products/bf.jpg',
         'images' => [
-            'assets/images/black-forest.jpg',
+            'assets/images/products/bf.jpg',
         ],
-        'badge'          => null,
-        'cake_wording'   => true,
-        'details'        => "Black Forest klasik Ann's menggunakan chocolate sponge yang lembap, krim chantilly ringan, dan cherry Morello asli. Setiap lapisan menghadirkan keseimbangan sempurna antara cokelat intens dan kesegaran buah.\n\nDihiasi dengan serutan cokelat dark premium dan cherry utuh di atas, menjadikannya pilihan timeless untuk berbagai perayaan.",
-        'storage_care'   => "Simpan dalam kulkas (2–8°C). Konsumsi dalam 3 hari. Mengandung gluten dan dairy.",
+        'badge' => null,
+        'cake_wording' => true,
+        'details' => "Black Forest klasik Ann's menggunakan chocolate sponge dengan lapisan cherry dan whipped cream. Kelezatan yang tak pernah lekang oleh waktu.",
+        'storage_care' => "Simpan dalam kulkas (2–8°C) dan konsumsi dalam 2-3 hari.",
     ],
     [
         'id'    => 8,
-        'name'  => 'Mango Cheesecake',
+        'name'  => 'Tres Leches Montblanc',
         'price' => 510000,
-        'image' => 'assets/images/mango-cheesecake.jpg',
-        'badge' => 'Seasonal',
+        'image' => 'assets/images/products/tlm.webp',
         'images' => [
-            'assets/images/mango-cheesecake.jpg',
+            'assets/images/products/tlm.webp',
         ],
-        'cake_wording'   => false,
-        'details'        => "Cheesecake premium dengan topping mangga harum musim yang dipilih saat kematangan optimal. Lapisan cream cheese yang dense dan creamy berpadu dengan coulis mangga segar di atasnya.\n\nHanya tersedia di musim tertentu ketika mangga pilihan tersedia, menjadikannya edisi yang selalu ditunggu-tunggu pelanggan setia Ann's.",
-        'storage_care'   => "Simpan dalam kulkas (2–8°C). Konsumsi dalam 2 hari. Tidak cocok untuk dibekukan karena dapat mengubah tekstur cream cheese.",
-    ],
-    [
-        'id'    => 9,
-        'name'  => 'Mango Cheesecake',
-        'price' => 510000,
-        'image' => 'assets/images/mango-cheesecake.jpg',
         'badge' => 'Seasonal',
-        'images' => [
-            'assets/images/mango-cheesecake.jpg',
-        ],
-        'cake_wording'   => false,
-        'details'        => "Cheesecake premium dengan topping mangga harum musim yang dipilih saat kematangan optimal. Lapisan cream cheese yang dense dan creamy berpadu dengan coulis mangga segar di atasnya.\n\nHanya tersedia di musim tertentu ketika mangga pilihan tersedia, menjadikannya edisi yang selalu ditunggu-tunggu pelanggan setia Ann's.",
-        'storage_care'   => "Simpan dalam kulkas (2–8°C). Konsumsi dalam 2 hari. Tidak cocok untuk dibekukan karena dapat mengubah tekstur cream cheese.",
+        'cake_wording' => false,
+        'details' => "Cheesecake premium dengan topping mangga harum musim dan tres leches yang lembut. Kombinasi tropis yang menyegarkan.",
+        'storage_care' => "Simpan dalam kulkas (2–8°C) dan konsumsi dalam 2 hari.",
     ],
 ];
+?>

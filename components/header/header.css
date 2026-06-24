@@ -21,25 +21,13 @@ body {
 
 /* HEADER */
 
+/* header.css */
 header {
-  width: 100%;
-  height: 100vh;
-
   background-image:
     linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
-    url("../../assets/img/tokokue.jpeg");
-
-  background-size: cover;
-  background-position: center;
-
-  position: relative;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  color: white;
+    url("/web-tokokue/assets/img/tokokue.jpeg");  /* ✅ PATH ABSOLUT */
 }
+. . .
 
 /* HERO */
 
