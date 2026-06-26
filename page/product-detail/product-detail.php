@@ -13,7 +13,7 @@
 include '../../components/navbar/navbar.php';
 require_once '../../data/products.php';
 require_once '../../config.php';
-
+/** @var array $products */
 // Ambil ID produk dari URL
 $id      = isset($_GET['id']) ? (int) $_GET['id'] : 0;
 $product = null;
@@ -62,7 +62,7 @@ foreach ($images as $img) {
 
     <!-- Breadcrumb -->
     <nav class="breadcrumb">
-        <a href="<?= BASE_URL ?>">Semua Produk</a>
+        <a href="<?= BASE_URL ?>page/shop/shop.php">Semua Produk</a>
         <span>/</span>
         <span><?= $name ?></span>
     </nav>
@@ -93,7 +93,7 @@ foreach ($images as $img) {
                             </button>
                         <?php endforeach; ?>
                     </div>
-                    
+
                     <!-- Gambar Utama -->
                     <div class="detail-gallery__main">
                         <img id="main-image" src="<?= $main_image_url ?>" alt="<?= $name ?>">
@@ -125,7 +125,7 @@ foreach ($images as $img) {
                             <button type="submit" name="redirect" value="<?= BASE_URL ?>page/product-detail/product-detail.php?id=<?= $product['id'] ?>" class="btn btn--cart">
                                 🛒 Tambahkan
                             </button>
-                            
+
                             <button type="button" class="btn btn--buy" onclick="buyNow()">
                                 ⚡ Beli sekarang
                             </button>
@@ -184,7 +184,7 @@ foreach ($images as $img) {
         <aside class="detail-sidebar">
 
             <h3 class="detail-sidebar__title">
-                ✨ Produk Lainnya
+                Produk Lainnya
                 <span class="badge-count">(<?= $total_lainnya ?>)</span>
             </h3>
 
@@ -193,9 +193,9 @@ foreach ($images as $img) {
                     <?php foreach ($products as $p): ?>
                         <?php if ($p['id'] === $id) continue; ?>
                         <a href="<?= BASE_URL ?>page/product-detail/product-detail.php?id=<?= $p['id'] ?>" class="detail-sidebar__item">
-                            <img 
-                                src="<?= BASE_URL . htmlspecialchars($p['image']) ?>" 
-                                alt="<?= htmlspecialchars($p['name']) ?>" 
+                            <img
+                                src="<?= BASE_URL . htmlspecialchars($p['image']) ?>"
+                                alt="<?= htmlspecialchars($p['name']) ?>"
                                 class="detail-sidebar__img"
                                 loading="lazy"
                             >
@@ -228,12 +228,12 @@ function switchImage(btn, src) {
     if (mainImage) {
         mainImage.src = src;
     }
-    
+
     var thumbs = document.querySelectorAll('.detail-gallery__thumb');
     thumbs.forEach(function(thumb) {
         thumb.classList.remove('active');
     });
-    
+
     btn.classList.add('active');
 }
 
@@ -263,7 +263,7 @@ function buyNow() {
     var qty = document.getElementById('qty-input').value || 1;
     var wordingInput = document.querySelector('input[name=cake_wording]');
     var wording = wordingInput ? wordingInput.value : '';
-    
+
     var url = '<?= BASE_URL ?>page/checkout/checkout.php?buy_now=<?= $product['id'] ?>&qty=' + qty;
     if (wording) {
         url += '&cake_wording=' + encodeURIComponent(wording);

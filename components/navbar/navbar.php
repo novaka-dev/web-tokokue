@@ -21,10 +21,10 @@ if (session_status() === PHP_SESSION_NONE) {
             
             <nav class="sidebar-nav">
                 <ul class="sidebar-nav__list">
-                    <li><a href="/web-tokokue/" class="sidebar-nav__link">Home</a></li>
-                    <li><a href="/web-tokokue/page/shop/shop.php" class="sidebar-nav__link">Shop</a></li>
-                    <li><a href="/web-tokokue/index.php#bout" class="sidebar-nav__link">About Us</a></li>
-                    <li><a href="/web-tokokue/#contact" class="sidebar-nav__link">Contact</a></li>
+                    <li><a href="/web-tokokue/" class="sidebar-nav__link">Beranda</a></li>
+                    <li><a href="/web-tokokue/page/shop/shop.php" class="sidebar-nav__link">Belanja</a></li>
+                    <li><a href="/web-tokokue/index.php#bout" class="sidebar-nav__link">Tentang Kami</a></li>
+                    <li><a href="/web-tokokue/#contact" class="sidebar-nav__link">Kontak</a></li>
                     <li><a href="/web-tokokue/page/cart/cart.php" class="sidebar-nav__link">Keranjang</a></li>
                     <li><a href="/web-tokokue/components/maps/maps.php" class="sidebar-nav__link">Lokasi</a></li>
                     
@@ -59,12 +59,12 @@ if (session_status() === PHP_SESSION_NONE) {
                 Logout
             </a>
         <?php else: ?>
-            <a class="sign" href="/web-tokokue/auth/login.php">Sign in</a>
+            <a class="sign" href="/web-tokokue/auth/login.php">Masuk</a>
         <?php endif; ?>
         
-        <button type="button" class="search-button">
+        <!-- <button type="button" class="search-button">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#AB9164" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
-        </button>
+        </button> -->
         
         <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/web-tokokue/components/cart/cart-icon.php'; ?>
     </div>

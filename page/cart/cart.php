@@ -25,7 +25,7 @@ $root  = BASE_URL;
 <main class="container cart-page">
 
     <nav class="breadcrumb">
-        <a href="<?= $root ?>index.php">Semua Produk</a>
+        <a href="<?= BASE_URL ?>index.php">Semua Produk</a>
         <span>/</span>
         <span>Keranjang</span>
     </nav>
