@@ -26,6 +26,7 @@ if (session_status() === PHP_SESSION_NONE) {
                     <li><a href="/web-tokokue/index.php#bout" class="sidebar-nav__link">About Us</a></li>
                     <li><a href="/web-tokokue/#contact" class="sidebar-nav__link">Contact</a></li>
                     <li><a href="/web-tokokue/page/cart/cart.php" class="sidebar-nav__link">Keranjang</a></li>
+                    <li><a href="/web-tokokue/components/maps/maps.php" class="sidebar-nav__link">Lokasi</a></li>
                     
                     <?php if (isset($_SESSION['user_logged_in']) && $_SESSION['user_logged_in'] === true): ?>
                         <li style="border-top: 1px solid #f0ece6; margin-top: 10px; padding-top: 16px;">

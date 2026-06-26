@@ -15,7 +15,7 @@
 @import url("../../page/checkout/checkout.css");
 @import url("../../page/cart/cart.css");
 @import url("../../auth/login.css");
-
+@import url("../../components/maps/maps.css");
 
 *,
 *::before,
