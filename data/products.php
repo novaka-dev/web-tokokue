@@ -19,6 +19,8 @@ $products = [
         'image' => 'assets/images/products/1.webp',
         'images' => [
             'assets/images/products/1.webp',
+            'assets/images/products/1.webp',
+
         ],
         'badge' => 'Best Seller',
         'cake_wording' => true,

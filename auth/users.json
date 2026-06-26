@@ -4,5 +4,11 @@
         "password": "$2y$10$aLCdwJIZWDataOLryihKYOZGRgbObb7En\/HydrGql2uHZ6MBb6Oru",
         "created_at": "2026-06-23 06:03:32",
         "role": "user"
+    },
+    "admin123@gmail.com": {
+        "name": "Ganteng",
+        "password": "$2y$10$uOsOwcTHAZB0\/yE8pkVle.tyqoABuigZxyx.msqsKWfTGse83C.de",
+        "created_at": "2026-06-26 16:13:54",
+        "role": "user"
     }
 }

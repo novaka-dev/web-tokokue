@@ -3,6 +3,8 @@ if (session_status() === PHP_SESSION_NONE) session_start();
 
 require_once '../../components/cart/cart.php';
 require_once '../../config.php';
+require_once '../../data/products.php'; // ✅ Di-include di paling atas agar tidak undefined
+/** @var array $products */
 
 $root = BASE_URL;
 
@@ -17,8 +19,7 @@ $total = 0;
 
 if ($buy_now_id > 0) {
     // MODE: Checkout satu produk (Beli Sekarang)
-    require_once '../../data/products.php';
-    
+
     // Cari produk berdasarkan ID
     $product = null;
     foreach ($products as $p) {
@@ -27,7 +28,7 @@ if ($buy_now_id > 0) {
             break;
         }
     }
-    
+
     if ($product) {
         // Buat item sementara untuk checkout
         $checkout_items = [
@@ -108,7 +109,7 @@ $count = array_sum(array_column($checkout_items, 'qty'));
 <main class="container checkout-page">
 
     <nav class="breadcrumb">
-        <a href="<?= $root ?>index.php">Semua Produk</a>
+        <a href="<?= BASE_URL ?>page/shop/shop.php">Semua Produk</a>
         <span>/</span>
         <span>Checkout</span>
     </nav>
@@ -152,7 +153,7 @@ $count = array_sum(array_column($checkout_items, 'qty'));
             <p class="checkout-struk__note">
                 * Pembayaran dilakukan via konfirmasi WhatsApp
             </p>
-            
+
             <?php if ($buy_now_id > 0): ?>
                 <p style="font-size:12px; color:#b5832a; margin-top:12px; text-align:center; background:#faf8f5; padding:8px; border-radius:8px;">
                     ⚡ Checkout 1 produk ini
