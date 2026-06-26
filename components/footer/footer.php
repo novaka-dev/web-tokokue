@@ -12,41 +12,26 @@
 	<footer class="footer-cake">
 		<div class="footer-wrapper">
 			<div class="footer-left">
-				<img class="footer-logo" src="../../assets/images/anns2.png" alt="">
+				<img class="footer-logo" src="/web-tokokue/assets/images/anns2.png" alt="">
 				<span class="footer-heading">Our Stores - Ann's Bakehouse & Creamery</span>
 				<dl class="footer-place">
-					<dt class="footer-place-dt">&#x1F4CD; Ann's Bakehouse & Creamery Barito</dt>
-					<dl class="footer-place-dl">Monday - Sunday: 08:00 - 21:00 (GMT+7)</dl>
-
-					<dt class="footer-place-dt">&#x1F4CD; Ann's Bakehouse & Creamery Kesehatan, Bintaro Jaya</dt>
-					<dl class="footer-place-dl">Monday - Sunday: 08:00 - 19:00 (GMT+7)</dl>
-
 					<dt class="footer-place-dt">&#x1F4CD; Ann's Bakehouse & Creamery Plaza Senayan</dt>
-					<dl class="footer-place-dl">Monday - Sunday: 10:00 - 22:00 (GMT+7)</dl>
-
-					<dt class="footer-place-dt">&#x1F4CD; Ann's Bakehouse & Creamery Menara Astra, Sudirman</dt>
-					<dl class="footer-place-dl">Monday - Sunday: 08:00 - 19:00 (GMT+7)</dl>
-
-					<dt class="footer-place-dt">&#x1F4CD; Ann's Bakehouse & Creamery Jagakarsa</dt>
-					<dl class="footer-place-dl">Monday - Sunday: 08:00 - 20:00 (GMT+7)</dl>
-
-					<dt class="footer-place-dt">&#x1F4CD; Ann's Bakehouse & Creamery Puri Indah Mall 2</dt>
-					<dl class="footer-place-dl">Monday - Sunday: 10:00 - 22:00 (GMT+7)</dl>
+					<dl class="footer-place-dl">Monday - Sunday: 08:00 - 21:00 (GMT+7)</dl>
 				</dl>
 				<div class="footer-operational">
 					<span class="footer-subheading">Operational Hours</span>
 					<span>Customer Service</span>
-					<span class="footer-operational-day">Monday - Sunday: 07:00 - 21:00 WIB (GMT+7)</span>
+					<span class="footer-operational-day">Monday - Sunday: 08:00 - 21:00 WIB (GMT+7)</span>
 				</div>
 			</div>
 			<div class="footer-right">
-				<form class="footer-email" action="">
+				<!-- <form class="footer-email" action="">
 					<label for="">Subscribe to our newsletter</label>
 					<div class="footer-email-input-wrapper">
 						<input class="footer-email-input" type="email" name="email" placeholder="Email Address">
 						<button class="footer-email-submit" type="submit">Subscribe</button>	
 					</div>
-				</form>
+				</form> -->
 				<div class="footer-right-child-container">
 					<div class="footer-right-child">
 						<span class="footer-heading footer-heading-right">Contact Us</span>
@@ -65,15 +50,7 @@
 						<a href="#" class="footer-link">Blog</a>
 					</div>
 					<div class="footer-right-child">
-						<span class="footer-heading footer-heading-right">Available On</span>
-						<a href="https://www.tokopedia.com/annsbakehouse" class="footer-link">Tokopedia</a>
-						<a href="https://gofood.link/u/my94a" class="footer-link">GoFood</a>
-						<a href="https://food.grab.com/id/en/restaurant/ann-s-bakehouse-creamery-barito-delivery/6-C3CUWAWCLKLKTE" class="footer-link">GrabFood</a>
-						<a href="https://shopee.co.id/anns.bakehouse" class="footer-link">Shopee</a>
-						<a href="https://vt.tiktok.com/ZSxhWtScn/?page=Mall" class="footer-link">Tiktok Shop</a>
-					</div>
-					<div class="footer-right-child">
-						<span class="footer-heading footer-heading-right">Available On</span>
+						<span class="footer-heading footer-heading-right">Social Media</span>
 						<a href="https://www.instagram.com/annsbakehouse/" class="footer-social">
 							<svg xmlns="http://www.w3.org/2000/svg" width="1.5rem" height="1.5rem" viewBox="0 0 24 24">
 								<path d="M0 0h24v24H0z" fill="none" />

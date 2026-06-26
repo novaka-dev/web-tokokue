@@ -29,12 +29,7 @@
       <div class="line"></div>
 
       <p>
-        Ann's Bakehouse & Creamery was established in 2014.
-        We prioritize service excellence and the needs of our
-        customers by building the most effective cake delivery
-        team and customer service team to achieve our goal
-        of becoming the most reliable one-click-away-service
-        online cake shop in Jakarta.
+        Ann's Bakehouse & Creamery didirikan pada tahun 2014. Kami mengutamakan keunggulan layanan dan kebutuhan pelanggan dengan membangun tim pengiriman kue dan tim layanan pelanggan yang paling efektif untuk mencapai tujuan kami menjadi toko kue online satu-klik yang paling terpercaya di Jakarta.
       </p>
 
     </div>

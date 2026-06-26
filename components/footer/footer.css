@@ -16,6 +16,7 @@
 }
 .footer-logo{
 	width: 100px;
+	margin-bottom: 30px;
 }
 .footer-left{
 	width: 400px;
@@ -25,7 +26,7 @@
 .footer-heading{
 	font-size: 1.5rem;
 	font-weight: bold;
-	margin-top: 3rem;
+	
 }
 .footer-place-dt{
 	margin-top: 1rem;
@@ -52,7 +53,7 @@
 	width: 100%;
 	display: flex;
 	flex-direction: row;
-	margin-top: 3px;
+	
 }
 .footer-email-input{
 	flex: 1;
@@ -67,14 +68,14 @@
 	color: #ab9164;
 }
 .footer-heading-right{
-	margin-top: 1.6rem;
+	
 	display: block;
 	margin-bottom: 0.5rem;
 }
 .footer-right-child-container{
 	display: flex;
 	flex-direction: row;
-	justify-content: space-around;
+	gap: 100px;
 }
 .footer-link{
 	color: white;
@@ -84,7 +85,6 @@
 }
 .footer-right-child .footer-subheading{
 	font-weight: bold;
-	margin-top: 0.5rem;
 	display: block;
 }
 .footer-social{

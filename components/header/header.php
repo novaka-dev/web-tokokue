@@ -24,7 +24,7 @@
     <h1>Start It With Cake</h1>
     <h2>A Thoughtful Way to Celebrate.</h2>
     <p>#AssortéCreations</p>
-    <a href="/web-tokokue/page/shop/shop.php" class="btn-shop">Shop Now</a>
+    <a href="/web-tokokue/page/shop/shop.php" class="btn-shop">Belanja Sekarang</a>
   </div>
 </header>
 
