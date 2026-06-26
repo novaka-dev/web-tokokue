@@ -9,14 +9,20 @@
   <title>Our Stores — Ann's Bakehouse & Creamery</title>
   <link rel="stylesheet" href="maps.css" />
 </head>
-<body>
-
-  <!-- NAVBAR -->
-
-
-  <!-- PAGE HEADER -->
 <?php include '../navbar/navbar.php'; 
 ?>
+<body>
+
+  <!-- PAGE HEADER -->
+   <section class="page-header">
+    <div class="eyebrow">OUR STORES</div>
+    <h1>Lokasi Kami</h1>
+    <p>
+        Temukan Ann's Bakehouse & Creamery terdekat dan nikmati berbagai pilihan
+        kue premium kami di lokasi yang paling nyaman untuk Anda.
+    </p>
+    <div class="divider"></div>
+    </section>
 
   <!-- STORES WRAPPER -->
   <div class="stores-wrapper">
