@@ -4,23 +4,26 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 ?>
 <nav class="nav-utama">
-    <button class="burger" type="button" command="open-popover" popovertarget="navbar-dialog">
+    <button class="burger" type="button">
         <div class="bar1"></div>
         <div class="bar2"></div>
         <div class="bar3"></div>
+        <input id="rad1" type="radio" class="but-open" name="openclose">
     </button>
     
-    <div class="navbar-dialog" popover id="navbar-dialog">
+    
+    <div class="navbar-dialog" id="navbar-dialog">
         <aside class="navbar-sidebar" id="navbar-sidebar">
-            <button class="burger" type="button" command="close-popover" popovertarget="navbar-dialog" style="position: absolute; right: 0;">
+            <button class="burger" type="button" style="position: absolute; right: 0;">
                 <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#AB9164" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                <input id="rad2" type="radio" class="but-open" name="openclose">
             </button>
             
             <nav class="sidebar-nav">
                 <ul class="sidebar-nav__list">
                     <li><a href="/web-tokokue/" class="sidebar-nav__link">Home</a></li>
                     <li><a href="/web-tokokue/page/shop/shop.php" class="sidebar-nav__link">Shop</a></li>
-                    <li><a href="/web-tokokue/components/aboutus/aboutus.php" class="sidebar-nav__link">About Us</a></li>
+                    <li><a href="/web-tokokue/index.php#bout" class="sidebar-nav__link">About Us</a></li>
                     <li><a href="/web-tokokue/#contact" class="sidebar-nav__link">Contact</a></li>
                     <li><a href="/web-tokokue/page/cart/cart.php" class="sidebar-nav__link">Keranjang</a></li>
                     

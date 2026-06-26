@@ -40,7 +40,7 @@
 
 	  </div>
 	</div>
-  <div class="container">
+  <div class="container" id="bout">
   <?php
     include 'components/aboutus/aboutus.php';
   ?>

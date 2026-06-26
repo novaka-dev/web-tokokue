@@ -19,6 +19,7 @@
   cursor: pointer;
   background-color: transparent;
   padding: 10px 20px 15px 0;
+  position: relative;
 }
 
 .bar1,
@@ -81,25 +82,52 @@
   width: 19.75rem;
   height: 100vh;
   background-color: white;
-  position: fixed;
+  position: relative;
   top: 0;
   left: 0;
+  /*transform: translateX(-20rem);*/
   overflow-y: auto;
 }
-
-.navbar-dialog {
-  width: 100vw;
+.navbar-dialog{
+  /*width: 100vw;*/
+  width: 19.75rem;
   height: 100vh;
   position: fixed;
   inset: 0;
   padding: 0;
   margin: 0;
   border: none;
-
   background: rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(3px);
+  animation: fadeIn 0.2s ease-in;
+  display: block;
+  left: -20rem;
+  transition-duration: 0.3s;
 }
+.but-open{
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  opacity: 1;
+  top: 0%;
+  transform: translateX(-50%) translateY(50%);
+}
+.burger:has(#rad1:checked) ~ .navbar-dialog{
+  opacity: 1;
+  left: 0;
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(4px);
+}
+#rad1, #rad2{
+  opacity: 0;
+}
+/*@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}*/
 /* Sidebar nav menu */
 .sidebar-nav {
   margin-top: 60px;
