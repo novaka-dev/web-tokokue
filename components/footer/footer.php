@@ -9,18 +9,28 @@
 	<link rel="stylesheet" href="../../assets/styles/preflight.css">
 </head>
 <body>
-	<footer class="footer-cake">
+	<footer class="footer-cake" id="footer-cake">
 		<div class="footer-wrapper">
 			<div class="footer-left">
 				<img class="footer-logo" src="/web-tokokue/assets/images/anns2.png" alt="">
-				<span class="footer-heading">Our Stores - Ann's Bakehouse & Creamery</span>
+				<span class="footer-heading">Toko Kami - Ann's Bakehouse & Creamery</span>
 				<dl class="footer-place">
-					<dt class="footer-place-dt">&#x1F4CD; Ann's Bakehouse & Creamery Plaza Senayan</dt>
-					<dl class="footer-place-dl">Monday - Sunday: 08:00 - 21:00 (GMT+7)</dl>
+					<dt class="footer-place-dt">&#x1F4CD; Ann's Bakehouse & Creamery — Plaza Senayan</dt>
+					<dl class="footer-place-dl">Senin - Minggu: 10:00 - 22:00 (GMT+7)</dl>
+					<dt class="footer-place-dt">&#x1F4CD; Ann's Bakehouse & Creamery — Barito</dt>
+					<dl class="footer-place-dl">Senin - Minggu: 08:00 - 21:00 (GMT+7)</dl>
+					<dt class="footer-place-dt">&#x1F4CD; Ann's Bakehouse & Creamery — Menara Astra, Sudirman</dt>
+					<dl class="footer-place-dl">Senin - Minggu: 08:00 - 19:00 (GMT+7)</dl>
+					<dt class="footer-place-dt">&#x1F4CD; Ann's Bakehouse & Creamery — Jagaraksa</dt>
+					<dl class="footer-place-dl">Senin - Minggu: 08:00 - 20:00 (GMT+7)</dl>
+					<dt class="footer-place-dt">&#x1F4CD; Ann's Bakehouse & Creamery — Puri Indah Mall 2</dt>
+					<dl class="footer-place-dl">Senin - Minggu: 10:00 - 22:00 (GMT+7)</dl>
+					<dt class="footer-place-dt">&#x1F4CD; Ann's Bakehouse & Creamery — Kesehatan, Bintaro Jaya</dt>
+					<dl class="footer-place-dl">Senin - Minggu: 08:00 - 19:00 (GMT+7)</dl>
 				</dl>
 				<div class="footer-operational">
-					<span class="footer-subheading">Operational Hours</span>
-					<span>Customer Service</span>
+					<span class="footer-subheading">Jam Operasional</span>
+					<span>Layanan Pelanggan</span>
 					<span class="footer-operational-day">Monday - Sunday: 08:00 - 21:00 WIB (GMT+7)</span>
 				</div>
 			</div>
@@ -34,23 +44,22 @@
 				</form> -->
 				<div class="footer-right-child-container">
 					<div class="footer-right-child">
-						<span class="footer-heading footer-heading-right">Contact Us</span>
+						<span class="footer-heading footer-heading-right">Kontak</span>
 						<span class="footer-subheading">Whatsapp</span>
 						<a href="#" class="footer-link">+62 896 3775 6829</a>
 
 						<span class="footer-subheading">Email</span>
-						<a href="#" class="footer-link">Send Your Inquiry</a>
+						<a href="#" class="footer-link">order@annsbakehouse.com</a>
 					</div>
 					<div class="footer-right-child">
-						<span class="footer-heading footer-heading-right">Information</span>
-						<a href="#" class="footer-link">Shipping & Delivery</a>
-						<a href="#" class="footer-link">Terms & Conditions</a>
-						<a href="#" class="footer-link">FAQ & Help</a>
-						<a href="#" class="footer-link">Store Location</a>
-						<a href="#" class="footer-link">Blog</a>
+						<span class="footer-heading footer-heading-right">Informasi</span>
+						<a href="/web-tokokue/page/shop/shop.php" class="footer-link">Belanja</a>
+						<a href="/web-tokokue/index.php#bout" class="footer-link">Tentang Kami</a>
+						<a href="/web-tokokue/components/maps/maps.php" class="footer-link">Lokasi Toko</a>
+						<a href="/web-tokokue/page/cart/cart.php" class="footer-link">Keranjang</a>
 					</div>
 					<div class="footer-right-child">
-						<span class="footer-heading footer-heading-right">Social Media</span>
+						<span class="footer-heading footer-heading-right">Sosial Media</span>
 						<a href="https://www.instagram.com/annsbakehouse/" class="footer-social">
 							<svg xmlns="http://www.w3.org/2000/svg" width="1.5rem" height="1.5rem" viewBox="0 0 24 24">
 								<path d="M0 0h24v24H0z" fill="none" />

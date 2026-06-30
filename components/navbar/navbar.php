@@ -24,7 +24,7 @@ if (session_status() === PHP_SESSION_NONE) {
                     <li><a href="/web-tokokue/" class="sidebar-nav__link">Beranda</a></li>
                     <li><a href="/web-tokokue/page/shop/shop.php" class="sidebar-nav__link">Belanja</a></li>
                     <li><a href="/web-tokokue/index.php#bout" class="sidebar-nav__link">Tentang Kami</a></li>
-                    <li><a href="/web-tokokue/#contact" class="sidebar-nav__link">Kontak</a></li>
+                    <li><a href="/web-tokokue/index.php#footer-cake" class="sidebar-nav__link">Kontak</a></li>
                     <li><a href="/web-tokokue/page/cart/cart.php" class="sidebar-nav__link">Keranjang</a></li>
                     <li><a href="/web-tokokue/components/maps/maps.php" class="sidebar-nav__link">Lokasi</a></li>
                     

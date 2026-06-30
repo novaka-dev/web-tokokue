@@ -35,7 +35,7 @@ $products = [
         'images' => [
             'assets/images/products/2.jpg',
         ],
-        'badge' => null,
+        'badge' => "Best Seller",
         'cake_wording' => false,
         'details' => "Koleksi petit fours eksklusif dengan 12 varian rasa yang menggugah selera. Sajian elegan untuk segala acara.",
         'storage_care' => "Simpan di tempat sejuk dan kering, hindari sinar matahari langsung.",
@@ -74,7 +74,7 @@ $products = [
         'images' => [
             'assets/images/products/5.png',
         ],
-        'badge' => null,
+        'badge' => "Best Seller",
         'cake_wording' => true,
         'details' => "Tiramisu klasik Ann's versi whole cake dengan lapisan mascarpone creamy dan bubuk coklat premium. Autentik Italia di setiap gigitan.",
         'storage_care' => "Simpan dalam kulkas (2–8°C) dan konsumsi dalam 2-3 hari.",
