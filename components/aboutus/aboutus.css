@@ -12,21 +12,21 @@
 :root {
 
   /* Warna utama teks */
-  --text-primary: #1a1a1a;
-  --text-secondary: #6b6b6b;
-  --text-light: #f8f1e7;
-  --text-title: #5d5875;
+  --text-primary: #1a1a1a;    /* teks hitam pekat */
+  --text-secondary: #6b6b6b;  /* teks abu-abu untuk deskripsi */
+  --text-light: #f8f1e7;      /* teks terang, dipakai di atas background gelap */
+  --text-title: #5d5875;      /* warna khusus judul (ungu keabu-abuan) */
 
   /* Warna utama website */
-  --accent: #b5832a;
-  --accent-hover: #a67c44;
+  --accent: #b5832a;          /* warna aksen/gold */
+  --accent-hover: #a67c44;    /* warna aksen saat hover, lebih gelap */
 
   /* Efek bayangan */
-  --shadow-soft: 0 2px 12px rgba(0,0,0,.07);
-  --shadow-hover: 0 12px 36px rgba(0,0,0,.13);
+  --shadow-soft: 0 2px 12px rgba(0,0,0,.07);   /* shadow tipis, kondisi normal */
+  --shadow-hover: 0 12px 36px rgba(0,0,0,.13); /* shadow lebih tebal saat hover */
 
   /* Durasi animasi */
-  --transition: .35s cubic-bezier(.4,0,.2,1);
+  --transition: .35s cubic-bezier(.4,0,.2,1);  /* durasi & easing transisi standar */
 }
 
 /* =========================
@@ -36,258 +36,62 @@
 *{
   margin:0;
   padding:0;
-  box-sizing:border-box;
+  box-sizing:border-box; /* padding & border tidak menambah lebar/tinggi elemen */
 }
 
 html{
-  scroll-behavior:smooth; /* Scroll menjadi halus */
+  scroll-behavior:smooth; /* Scroll menjadi halus saat klik anchor link */
 }
 
 body{
-  overflow-x:hidden; /* Mencegah scroll ke samping */
+  overflow-x:hidden; /* Mencegah scroll ke samping akibat elemen yang meluber */
   color:var(--text-primary);
 }
 
 /* =========================
-   HERO SECTION
+   HOME HERO SECTION
    Menempatkan konten tepat
    di tengah halaman
+   (di-rename dari .hero -> .home-hero biar tidak bentrok
+   dengan .hero di file lain)
 ========================= */
-.hero{
+.home-hero{
 
-  position:absolute;
+  position:absolute; /* dilepas dari alur normal, posisinya diatur manual */
 
   top:50%;
   left:50%;
 
-  transform:translate(-50%,-50%);
+  transform:translate(-50%,-50%); /* geser balik 50% dari ukurannya sendiri, biar benar-benar center */
 
   text-align:center;
 
-  animation:fadeUp 1.5s ease;
+  animation:fadeUp 1.5s ease; /* animasi muncul saat halaman dibuka */
 }
 
 /* =========================
-   HERO TITLE
+   HOME HERO TITLE
    Judul utama halaman
 ========================= */
-.hero h1{
+.home-hero h1{
 
   font-family:"Cormorant Garamond",serif;
 
   font-size:82px;
   font-weight:600;
 
-  letter-spacing:-2px;
+  letter-spacing:-2px; /* huruf dirapatkan biar judul besar terlihat elegan */
 
   color:var(--text-light);
 
   margin-bottom:10px;
 
-  text-shadow:var(--shadow-soft);
+  text-shadow:var(--shadow-soft); /* bayangan halus biar teks kontras dg background */
 
   transition:var(--transition);
 }
 
 /* Efek ketika hero disentuh */
-.hero:hover h1{
-  letter-spacing:1px;
+.home-hero:hover h1{
+  letter-spacing:1px; 
 }
-
-/* =========================
-   HERO SUBTITLE
-========================= */
-.hero h2{
-
-  font-family:"Cormorant Garamond",serif;
-
-  font-size:34px;
-
-  font-weight:400;
-
-  color:var(--text-light);
-
-  margin-bottom:12px;
-}
-
-/* =========================
-   HERO DESCRIPTION
-========================= */
-.hero p{
-
-  font-family:"DM Sans",sans-serif;
-
-  font-size:18px;
-
-  letter-spacing:2px;
-
-  margin-bottom:35px;
-
-  color:var(--text-light);
-
-  opacity:.9;
-}
-
-/* =========================
-   HERO BUTTON
-   Tombol Call To Action
-========================= */
-.hero a{
-
-  display:inline-block;
-
-  text-decoration:none;
-
-  background:var(--accent);
-
-  color:var(--text-light);
-
-  padding:15px 40px;
-
-  border-radius:10px;
-
-  transition:var(--transition);
-
-  box-shadow:var(--shadow-soft);
-}
-
-/* Efek hover tombol */
-.hero a:hover{
-
-  background:var(--accent-hover);
-
-  transform:translateY(-4px);
-
-  box-shadow:var(--shadow-hover);
-}
-
-/* =========================
-   ABOUT SECTION
-   Layout gambar dan teks
-   menggunakan Flexbox
-========================= */
-.about{
-
-  width:100%;
-  min-height:100vh;
-
-  display:flex;
-
-  justify-content:start;
-
-  align-items:center;
-
-  gap:70px;
-
-  animation:fadeUp 1.2s ease;
-}
-
-/* =========================
-   ABOUT IMAGE
-========================= */
-.about-image{
-
-  width:50%;
-
-  overflow:hidden; /* Menyembunyikan bagian gambar saat zoom */
-}
-
-.about-image img{
-
-  width:100%;
-  height:600px;
-
-  object-fit:cover;
-
-  border-radius:5px;
-
-  transition:var(--transition);
-}
-
-/* Efek zoom gambar */
-.about-image img:hover{
-
-  transform:scale(1.05);
-}
-
-/* =========================
-   ABOUT CONTENT
-========================= */
-.about-text{
-
-  width:40%;
-
-  animation:fadeText 1.5s ease;
-}
-
-/* Judul About */
-.about-text h1{
-
-  font-family:"Cormorant Garamond",serif;
-
-  font-size:70px;
-
-  color:var(--text-title);
-
-  margin-bottom:10px;
-
-  transition:var(--transition);
-}
-
-/* Efek hover judul */
-.about-text:hover h1{
-
-  letter-spacing:1px;
-}
-
-/* =========================
-   DECORATION LINE
-   Garis pemisah judul
-========================= */
-.line{
-
-  width:120px;
-
-  height:2px;
-
-  background:var(--accent);
-
-  margin-bottom:35px;
-
-  transition:var(--transition);
-}
-
-/* Garis memanjang saat hover */
-.about-text:hover .line{
-
-  width:170px;
-}
-
-/* =========================
-   ABOUT PARAGRAPH
-========================= */
-.about-text p{
-
-  font-family:"DM Sans",sans-serif;
-
-  font-size:16px;
-
-  line-height:1.9;
-
-  color:var(--text-secondary);
-
-  opacity:.85;
-
-  transition:var(--transition);
-}
-
-/* Paragraf menjadi lebih jelas */
-.about-text:hover p{
-
-  opacity:1;
-}
-
-/* =========================
-   ANIMATION
-   Saat ini dinonaktifkan
-========================= */
