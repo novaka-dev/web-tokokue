@@ -1,319 +1,293 @@
 /* =========================
    GOOGLE FONT
+   Mengimpor font yang digunakan pada halaman
 ========================= */
 @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@300;400;500&display=swap");
 
 /* =========================
-   ROOT
+   ROOT VARIABLES
+   Menyimpan warna, shadow, dan efek
+   agar mudah digunakan berulang
 ========================= */
-
 :root {
-  /* =========================
-     TEXT
-  ========================= */
 
+  /* Warna utama teks */
   --text-primary: #1a1a1a;
   --text-secondary: #6b6b6b;
   --text-light: #f8f1e7;
   --text-title: #5d5875;
 
-  /* =========================
-     ACCENT
-  ========================= */
-
+  /* Warna utama website */
   --accent: #b5832a;
   --accent-hover: #a67c44;
 
-  /* =========================
-     SHADOW
-  ========================= */
+  /* Efek bayangan */
+  --shadow-soft: 0 2px 12px rgba(0,0,0,.07);
+  --shadow-hover: 0 12px 36px rgba(0,0,0,.13);
 
-  --shadow-soft: 0 2px 12px rgba(0, 0, 0, 0.07);
-  --shadow-hover: 0 12px 36px rgba(0, 0, 0, 0.13);
-
-  /* =========================
-     EFFECT
-  ========================= */
-
-  --transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  /* Durasi animasi */
+  --transition: .35s cubic-bezier(.4,0,.2,1);
 }
 
 /* =========================
-   RESET
+   RESET CSS
+   Menghilangkan style bawaan browser
 ========================= */
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
-html {
-  scroll-behavior: smooth;
+html{
+  scroll-behavior:smooth; /* Scroll menjadi halus */
 }
 
-body {
-  overflow-x: hidden;
-
-  color: var(--text-primary);
+body{
+  overflow-x:hidden; /* Mencegah scroll ke samping */
+  color:var(--text-primary);
 }
 
 /* =========================
-   HEADER
+   HERO SECTION
+   Menempatkan konten tepat
+   di tengah halaman
 ========================= */
+.hero{
 
+  position:absolute;
 
-/* =========================
-   HERO
-========================= */
+  top:50%;
+  left:50%;
 
-.hero {
-  position: absolute;
+  transform:translate(-50%,-50%);
 
-  top: 50%;
-  left: 50%;
+  text-align:center;
 
-  transform: translate(-50%, -50%);
-
-  text-align: center;
-
-  animation: fadeUp 1.5s ease;
+  animation:fadeUp 1.5s ease;
 }
 
 /* =========================
    HERO TITLE
+   Judul utama halaman
 ========================= */
+.hero h1{
 
-.hero h1 {
-  font-family: "Cormorant Garamond", serif;
+  font-family:"Cormorant Garamond",serif;
 
-  font-size: 82px;
-  font-weight: 600;
+  font-size:82px;
+  font-weight:600;
 
-  letter-spacing: -2px;
+  letter-spacing:-2px;
 
-  color: var(--text-light);
+  color:var(--text-light);
 
-  margin-bottom: 10px;
+  margin-bottom:10px;
 
-  text-shadow: var(--shadow-soft);
+  text-shadow:var(--shadow-soft);
 
-  transition: var(--transition);
+  transition:var(--transition);
 }
 
-.hero:hover h1 {
-  letter-spacing: 1px;
+/* Efek ketika hero disentuh */
+.hero:hover h1{
+  letter-spacing:1px;
 }
 
 /* =========================
    HERO SUBTITLE
 ========================= */
+.hero h2{
 
-.hero h2 {
-  font-family: "Cormorant Garamond", serif;
+  font-family:"Cormorant Garamond",serif;
 
-  font-size: 34px;
-  font-weight: 400;
+  font-size:34px;
 
-  color: var(--text-light);
+  font-weight:400;
 
-  margin-bottom: 12px;
+  color:var(--text-light);
+
+  margin-bottom:12px;
 }
 
 /* =========================
-   HERO TEXT
+   HERO DESCRIPTION
 ========================= */
+.hero p{
 
-.hero p {
-  font-family: "DM Sans", sans-serif;
+  font-family:"DM Sans",sans-serif;
 
-  font-size: 18px;
-  font-weight: 300;
+  font-size:18px;
 
-  letter-spacing: 2px;
+  letter-spacing:2px;
 
-  color: var(--text-light);
+  margin-bottom:35px;
 
-  margin-bottom: 35px;
+  color:var(--text-light);
 
-  opacity: 0.9;
+  opacity:.9;
 }
 
 /* =========================
    HERO BUTTON
+   Tombol Call To Action
 ========================= */
+.hero a{
 
-.hero a {
-  display: inline-block;
+  display:inline-block;
 
-  text-decoration: none;
+  text-decoration:none;
 
-  background-color: var(--accent);
+  background:var(--accent);
 
-  color: var(--text-light);
+  color:var(--text-light);
 
-  font-family: "DM Sans", sans-serif;
+  padding:15px 40px;
 
-  font-size: 17px;
-  font-weight: 500;
+  border-radius:10px;
 
-  padding: 15px 40px;
+  transition:var(--transition);
 
-  border-radius: 10px;
-
-  transition: var(--transition);
-
-  box-shadow: var(--shadow-soft);
+  box-shadow:var(--shadow-soft);
 }
 
-.hero a:hover {
-  background-color: var(--accent-hover);
+/* Efek hover tombol */
+.hero a:hover{
 
-  transform: translateY(-4px);
+  background:var(--accent-hover);
 
-  box-shadow: var(--shadow-hover);
+  transform:translateY(-4px);
+
+  box-shadow:var(--shadow-hover);
 }
 
 /* =========================
-   ABOUT
+   ABOUT SECTION
+   Layout gambar dan teks
+   menggunakan Flexbox
 ========================= */
+.about{
 
-.about {
-  width: 100%;
-  min-height: 100vh;
+  width:100%;
+  min-height:100vh;
 
-  display: flex;
-  justify-content: start;
-  align-items: center;
+  display:flex;
 
-  gap: 70px;
+  justify-content:start;
 
-  /* padding: 100px 120px; */
+  align-items:center;
 
-  animation: fadeUp 1.2s ease;
+  gap:70px;
+
+  animation:fadeUp 1.2s ease;
 }
 
 /* =========================
    ABOUT IMAGE
 ========================= */
+.about-image{
 
-.about-image {
-  width: 50%;
+  width:50%;
 
-  overflow: hidden;
+  overflow:hidden; /* Menyembunyikan bagian gambar saat zoom */
 }
 
-.about-image img {
-  width: 100%;
-  height: 600px;
+.about-image img{
 
-  object-fit: cover;
+  width:100%;
+  height:600px;
 
-  border-radius: 5px;
+  object-fit:cover;
 
-  transition: var(--transition);
+  border-radius:5px;
+
+  transition:var(--transition);
 }
 
-.about-image img:hover {
-  transform: scale(1.05);
-}
+/* Efek zoom gambar */
+.about-image img:hover{
 
-/* =========================
-   ABOUT TEXT
-========================= */
-
-.about-text {
-  width: 40%;
-
-  animation: fadeText 1.5s ease;
+  transform:scale(1.05);
 }
 
 /* =========================
-   ABOUT TITLE
+   ABOUT CONTENT
 ========================= */
+.about-text{
 
-.about-text h1 {
-  font-family: "Cormorant Garamond", serif;
+  width:40%;
 
-  font-size: 70px;
-  font-weight: 600;
-
-  color: var(--text-title);
-
-  margin-bottom: 10px;
-
-  transition: var(--transition);
+  animation:fadeText 1.5s ease;
 }
 
-.about-text:hover h1 {
-  letter-spacing: 1px;
+/* Judul About */
+.about-text h1{
+
+  font-family:"Cormorant Garamond",serif;
+
+  font-size:70px;
+
+  color:var(--text-title);
+
+  margin-bottom:10px;
+
+  transition:var(--transition);
+}
+
+/* Efek hover judul */
+.about-text:hover h1{
+
+  letter-spacing:1px;
 }
 
 /* =========================
-   LINE
+   DECORATION LINE
+   Garis pemisah judul
 ========================= */
+.line{
 
-.line {
-  width: 120px;
-  height: 2px;
+  width:120px;
 
-  background-color: var(--accent);
+  height:2px;
 
-  margin-bottom: 35px;
+  background:var(--accent);
 
-  transition: var(--transition);
+  margin-bottom:35px;
+
+  transition:var(--transition);
 }
 
-.about-text:hover .line {
-  width: 170px;
+/* Garis memanjang saat hover */
+.about-text:hover .line{
+
+  width:170px;
 }
 
 /* =========================
    ABOUT PARAGRAPH
 ========================= */
+.about-text p{
 
-.about-text p {
-  font-family: "DM Sans", sans-serif;
+  font-family:"DM Sans",sans-serif;
 
-  font-size: 16px;
+  font-size:16px;
 
-  line-height: 1.9;
+  line-height:1.9;
 
-  color: var(--text-secondary);
+  color:var(--text-secondary);
 
-  opacity: 0.85;
+  opacity:.85;
 
-  transition: var(--transition);
+  transition:var(--transition);
 }
 
-.about-text:hover p {
-  opacity: 1;
+/* Paragraf menjadi lebih jelas */
+.about-text:hover p{
+
+  opacity:1;
 }
 
 /* =========================
    ANIMATION
+   Saat ini dinonaktifkan
 ========================= */
-
-/* @keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(50px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeText {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-} */
